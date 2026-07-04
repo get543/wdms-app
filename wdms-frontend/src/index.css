@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background-color: #313130; /* Background color outside the app container */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* App Container wrapper */
+.app-container {
+  background: #F5F0E8;
+  width: 100%;
+  /* max-width: 360px; Slight tweak from 320px for better modern phone size but still mobile */
+  height: 100dvh;
+  /* max-height: 800px; For desktop viewing */
+  margin: 0 auto;
+  /* border-radius: 0; Default 0 for mobile, add border radius on desktop if needed via media query */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+
+}
+
+@media (min-width: 400px) {
+  .app-container {
+    height: 100vh;
+    /* border-radius: 32px; */
+  }
+}
+
+/* Scrollbar hiding for cleaner UI */
+::-webkit-scrollbar {
+  display: none;
+}

@@ -2,6 +2,15 @@
 
 Aplikasi ini terdiri dari backend Express + Node.js, frontend React + Vite, dan aplikasi mobile Flutter untuk mengelola menu, stok, transaksi, serta laporan penjualan warteg digital.
 
+## Screenshots
+
+| Light Mode                                                   | Dark Mode                                                  |
+| ------------------------------------------------------------ | ---------------------------------------------------------- |
+| ![light mode](./wdms-mobile/assets/mobile%20app%20light.png) | ![dark mode](./wdms-mobile/assets/mobile%20app%20dark.png) |
+
+---
+
+
 ## Struktur Folder
 
 ```text

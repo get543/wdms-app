@@ -1,6 +1,6 @@
 # WDMS — Warteg Digital Management System
 
-Aplikasi ini terdiri dari backend Express + Node.js dan frontend React + Vite untuk mengelola menu, stok, transaksi, serta laporan penjualan warteg digital.
+Aplikasi ini terdiri dari backend Express + Node.js, frontend React + Vite, dan aplikasi mobile Flutter untuk mengelola menu, stok, transaksi, serta laporan penjualan warteg digital.
 
 ## Struktur Folder
 
@@ -13,23 +13,44 @@ wdms-app/
 │   ├── db.js
 │   ├── index.js
 │   ├── package.json
+│   ├── package-lock.json
+│   ├── docs/
+│   │   └── implementation_plan.md
 │   └── routes/
 │       ├── auth.js
 │       ├── menu.js
 │       ├── stok.js
 │       └── transaksi.js
-└── wdms-frontend/
-    ├── .env
-    ├── index.html
-    ├── package.json
-    ├── vite.config.js
-    ├── public/
-    └── src/
-        ├── App.jsx
-        ├── components/
-        ├── context/
-        ├── pages/
-        └── services/
+├── wdms-frontend/
+│   ├── .env
+│   ├── index.html
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── vite.config.js
+│   ├── README.md
+│   ├── public/
+│   └── src/
+│       ├── App.css
+│       ├── App.jsx
+│       ├── index.css
+│       ├── main.jsx
+│       ├── assets/
+│       ├── components/
+│       ├── context/
+│       ├── data/
+│       ├── pages/
+│       └── services/
+└── wdms-mobile/
+    ├── analysis_options.yaml
+    ├── pubspec.yaml
+    ├── README.md
+    ├── android/
+    ├── ios/
+    ├── lib/
+    ├── linux/
+    ├── macos/
+    ├── web/
+    └── windows/
 ```
 
 ## Persyaratan
@@ -48,6 +69,7 @@ wdms-app/
 ## Langkah 2: Konfigurasi Environment
 
 ### Backend
+
 Edit file `wdms-backend/.env` jika diperlukan:
 
 ```env
@@ -60,10 +82,11 @@ PORT=5000
 ```
 
 ### Frontend
+
 Edit file `wdms-frontend/.env` jika backend Anda berjalan di port lain:
 
 ```env
-VITE_API_URL=http://localhost:5000/api
+VITE_API_URL=/api
 ```
 
 ## Langkah 3: Install Dependency
@@ -111,7 +134,7 @@ http://localhost:5173
 ## Akun Login Demo
 
 | Peran   | Username | Password    |
-|---------|----------|-------------|
+| ------- | -------- | ----------- |
 | Pemilik | pemilik  | password123 |
 | Kasir   | kasir    | password123 |
 
@@ -126,16 +149,16 @@ http://localhost:5173
 
 ## Endpoint API Backend
 
-| Method | Endpoint | Keterangan |
-|--------|----------|------------|
-| POST | `/api/auth/login` | Login pengguna |
-| GET | `/api/menu` | Ambil data menu beserta stok |
-| POST | `/api/menu` | Tambah menu baru |
-| PUT | `/api/menu/:id` | Update menu |
-| DELETE | `/api/menu/:id` | Hapus menu |
-| GET | `/api/stok` | Ambil semua data stok |
-| PUT | `/api/stok/:id_menu` | Update stok berdasarkan id menu |
-| POST | `/api/transaksi` | Simpan transaksi baru |
-| GET | `/api/transaksi` | Ambil riwayat transaksi |
-| GET | `/api/transaksi/laporan?periode=hari|minggu|bulan` | Ambil data laporan penjualan |
-| GET | `/api/ping` | Health check backend |
+| Method | Endpoint                                             | Keterangan                      |
+| ------ | ---------------------------------------------------- | ------------------------------- |
+| POST   | `/api/auth/login`                                    | Login pengguna                  |
+| GET    | `/api/menu`                                          | Ambil data menu beserta stok    |
+| POST   | `/api/menu`                                          | Tambah menu baru                |
+| PUT    | `/api/menu/:id`                                      | Update menu                     |
+| DELETE | `/api/menu/:id`                                      | Hapus menu                      |
+| GET    | `/api/stok`                                          | Ambil semua data stok           |
+| PUT    | `/api/stok/:id_menu`                                 | Update stok berdasarkan id menu |
+| POST   | `/api/transaksi`                                     | Simpan transaksi baru           |
+| GET    | `/api/transaksi`                                     | Ambil riwayat transaksi         |
+| GET    | `/api/transaksi/laporan?periode=hari\|minggu\|bulan` | Ambil data laporan penjualan    |
+| GET    | `/api/ping`                                          | Health check backend            |

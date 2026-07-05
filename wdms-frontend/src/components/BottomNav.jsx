@@ -1,6 +1,14 @@
 import React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import { IconHome, IconToolsKitchen2, IconChartLine, IconClipboardList, IconHistory, IconSettings } from '@tabler/icons-react';
+import {
+  IconHome,
+  IconToolsKitchen2,
+  IconChartLine,
+  IconClipboardList,
+  IconHistory,
+  IconSettings,
+  IconBuildingWarehouse,
+} from '@tabler/icons-react';
 import { useAppContext } from '../context/AppContext';
 
 export default function BottomNav() {
@@ -11,10 +19,11 @@ export default function BottomNav() {
   if (!user || ['/', '/bayar', '/struk'].includes(location.pathname)) return null;
 
   return (
-    <div style={styles.navContainer}>
+    <div className="nav-enter" style={styles.navContainer}>
       {user.role === 'Pemilik' ? (
         <>
           <NavItem to="/dashboard-pemilik" icon={<IconHome />} label="Beranda" />
+          <NavItem to="/stok" icon={<IconBuildingWarehouse />} label="Kelola Stok" />
           <NavItem to="/menu" icon={<IconToolsKitchen2 />} label="Menu" />
           <NavItem to="/laporan" icon={<IconChartLine />} label="Laporan" />
           <NavItem to="/pengaturan" icon={<IconSettings />} label="Pengaturan" />
@@ -33,11 +42,12 @@ export default function BottomNav() {
 
 function NavItem({ to, icon, label }) {
   return (
-    <NavLink 
-      to={to} 
+    <NavLink
+      to={to}
+      className="btn-press"
       style={({ isActive }) => ({
         ...styles.navItem,
-        color: isActive ? '#C94040' : '#B4B2A9'
+        color: isActive ? '#C94040' : '#B4B2A9',
       })}
     >
       {({ isActive }) => (
@@ -58,12 +68,12 @@ const styles = {
     left: 0,
     right: 0,
     background: '#fff',
-    borderRadius: '0 0 32px 32px',
+    borderRadius: '0',
     padding: '12px 0 16px',
     display: 'flex',
     justifyContent: 'space-around',
     borderTop: '0.5px solid #e0dbd0',
-    zIndex: 10
+    zIndex: 10,
   },
   navItem: {
     display: 'flex',
@@ -71,17 +81,18 @@ const styles = {
     alignItems: 'center',
     gap: '4px',
     cursor: 'pointer',
-    textDecoration: 'none'
+    textDecoration: 'none',
+    transition: 'color 0.2s ease',
   },
   label: {
     fontSize: '10px',
-    fontWeight: '700'
+    fontWeight: '700',
   },
   activeDot: {
     width: '4px',
     height: '4px',
     borderRadius: '50%',
     background: '#C94040',
-    marginTop: '-2px'
-  }
+    marginTop: '-2px',
+  },
 };

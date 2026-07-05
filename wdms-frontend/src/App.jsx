@@ -30,22 +30,92 @@ function MainApp() {
     <div className="app-container">
       <Routes>
         <Route path="/" element={<Login />} />
-        
+
         {/* Pemilik Routes */}
-        <Route path="/dashboard-pemilik" element={<ProtectedRoute role="Pemilik"><DashboardPemilik /></ProtectedRoute>} />
-        <Route path="/menu" element={<ProtectedRoute role="Pemilik"><KelolaMenu /></ProtectedRoute>} />
-        <Route path="/laporan" element={<ProtectedRoute role="Pemilik"><LaporanPenjualan /></ProtectedRoute>} />
-        <Route path="/stok" element={<ProtectedRoute role="Pemilik"><ManajemenStok /></ProtectedRoute>} />
-        
+        <Route
+          path="/dashboard-pemilik"
+          element={
+            <ProtectedRoute role="Pemilik">
+              <DashboardPemilik />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/menu"
+          element={
+            <ProtectedRoute role="Pemilik">
+              <KelolaMenu />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/laporan"
+          element={
+            <ProtectedRoute role="Pemilik">
+              <LaporanPenjualan />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/stok"
+          element={
+            <ProtectedRoute role="Pemilik">
+              <ManajemenStok />
+            </ProtectedRoute>
+          }
+        />
+
         {/* Kasir Routes */}
-        <Route path="/dashboard-kasir" element={<ProtectedRoute role="Kasir"><DashboardKasir /></ProtectedRoute>} />
-        <Route path="/pesan" element={<ProtectedRoute role="Kasir"><PesananKasir /></ProtectedRoute>} />
-        <Route path="/bayar" element={<ProtectedRoute role="Kasir"><ProsesPembayaran /></ProtectedRoute>} />
-        <Route path="/struk" element={<ProtectedRoute role="Kasir"><StrukPembayaran /></ProtectedRoute>} />
-        <Route path="/riwayat" element={<ProtectedRoute role="Kasir"><RiwayatTransaksi /></ProtectedRoute>} />
-        
+        <Route
+          path="/dashboard-kasir"
+          element={
+            <ProtectedRoute role="Kasir">
+              <DashboardKasir />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/pesan"
+          element={
+            <ProtectedRoute role="Kasir">
+              <PesananKasir />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/bayar"
+          element={
+            <ProtectedRoute role="Kasir">
+              <ProsesPembayaran />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/struk"
+          element={
+            <ProtectedRoute role="Kasir">
+              <StrukPembayaran />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/riwayat"
+          element={
+            <ProtectedRoute role="Kasir">
+              <RiwayatTransaksi />
+            </ProtectedRoute>
+          }
+        />
+
         {/* Shared */}
-        <Route path="/pengaturan" element={<ProtectedRoute><Pengaturan /></ProtectedRoute>} />
+        <Route
+          path="/pengaturan"
+          element={
+            <ProtectedRoute>
+              <Pengaturan />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
       <BottomNav />
     </div>

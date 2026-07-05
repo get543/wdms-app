@@ -29,7 +29,7 @@ body {
 
 /* App Container wrapper */
 .app-container {
-  background: #F5F0E8;
+  background: #f5f0e8;
   width: 100%;
   /* max-width: 360px; Slight tweak from 320px for better modern phone size but still mobile */
   height: 100dvh;
@@ -40,8 +40,7 @@ body {
   display: flex;
   flex-direction: column;
   position: relative;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 @media (min-width: 400px) {

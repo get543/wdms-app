@@ -6,15 +6,19 @@ const AppContext = createContext();
 export const AppProvider = ({ children }) => {
   // ────── Auth state ──────
   const [user, setUser] = useState(() => {
-    try { return JSON.parse(localStorage.getItem('wdms_user')); } catch { return null; }
+    try {
+      return JSON.parse(localStorage.getItem('wdms_user'));
+    } catch {
+      return null;
+    }
   });
 
   // ────── Data state ──────
-  const [menus, setMenus]             = useState([]);
+  const [menus, setMenus] = useState([]);
   const [transactions, setTransactions] = useState([]);
   const [laporanData, setLaporanData] = useState(null);
-  const [loading, setLoading]         = useState(false);
-  const [apiError, setApiError]       = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [apiError, setApiError] = useState(null);
 
   // ────── Cart ──────
   const [cart, setCart] = useState([]);
@@ -42,7 +46,8 @@ export const AppProvider = ({ children }) => {
       localStorage.setItem('wdms_user', JSON.stringify(userData));
       return { success: true, user: userData };
     } catch (err) {
-      const msg = err?.response?.data?.message || 'Login gagal. Periksa kembali username dan password.';
+      const msg =
+        err?.response?.data?.message || 'Login gagal. Periksa kembali username dan password.';
       setApiError(msg);
       return { success: false, message: msg };
     } finally {
@@ -66,7 +71,7 @@ export const AppProvider = ({ children }) => {
       setApiError(null);
       const res = await apiService.getMenus();
       // Normalize field names to match frontend expectations
-      const normalized = res.data.data.map(m => ({
+      const normalized = res.data.data.map((m) => ({
         id: m.id_menu,
         id_menu: m.id_menu,
         nama: m.nama_menu,
@@ -75,7 +80,7 @@ export const AppProvider = ({ children }) => {
         harga: parseFloat(m.harga_jual),
         harga_jual: parseFloat(m.harga_jual),
         status: m.status,
-        stok: m.stok
+        stok: m.stok,
       }));
       setMenus(normalized);
     } catch (err) {
@@ -149,7 +154,7 @@ export const AppProvider = ({ children }) => {
         total: trxData.total,
         bayar: trxData.bayar,
         kembalian: trxData.kembalian,
-        metode: trxData.metode
+        metode: trxData.metode,
       });
       clearCart();
       await fetchMenus(); // Refresh menu stok
@@ -165,7 +170,7 @@ export const AppProvider = ({ children }) => {
   // ─────────────────────────────────────────────────
   // LAPORAN
   // ─────────────────────────────────────────────────
-  const fetchLaporan = async (periode = 'hari') => {
+  const fetchLaporan = useCallback(async (periode = 'hari') => {
     try {
       setApiError(null);
       const res = await apiService.getLaporan(periode);
@@ -175,28 +180,28 @@ export const AppProvider = ({ children }) => {
       handleErr(err, 'Gagal mengambil laporan.');
       return null;
     }
-  };
+  }, []);
 
   // ─────────────────────────────────────────────────
   // CART
   // ─────────────────────────────────────────────────
   const addToCart = (menu) => {
-    setCart(prev => {
-      const existing = prev.find(item => item.id === menu.id);
+    setCart((prev) => {
+      const existing = prev.find((item) => item.id === menu.id);
       if (existing) {
-        return prev.map(item => item.id === menu.id ? { ...item, qty: item.qty + 1 } : item);
+        return prev.map((item) => (item.id === menu.id ? { ...item, qty: item.qty + 1 } : item));
       }
       return [...prev, { ...menu, qty: 1 }];
     });
   };
 
   const removeFromCart = (id) => {
-    setCart(prev => prev.filter(item => item.id !== id));
+    setCart((prev) => prev.filter((item) => item.id !== id));
   };
 
   const updateCartQty = (id, qty) => {
     if (qty <= 0) return removeFromCart(id);
-    setCart(prev => prev.map(item => item.id === id ? { ...item, qty } : item));
+    setCart((prev) => prev.map((item) => (item.id === id ? { ...item, qty } : item)));
   };
 
   const clearCart = () => setCart([]);
@@ -213,19 +218,34 @@ export const AppProvider = ({ children }) => {
 
   const value = {
     // Auth
-    user, login, logout,
+    user,
+    login,
+    logout,
     // Menu
-    menus, fetchMenus, addMenu, updateMenuItem, deleteMenuItem,
+    menus,
+    fetchMenus,
+    addMenu,
+    updateMenuItem,
+    deleteMenuItem,
     // Stok
     updateStok,
     // Transaksi
-    transactions, addTransaction, fetchTransaksi,
+    transactions,
+    addTransaction,
+    fetchTransaksi,
     // Laporan
-    laporanData, fetchLaporan,
+    laporanData,
+    fetchLaporan,
     // Cart
-    cart, addToCart, removeFromCart, updateCartQty, clearCart,
+    cart,
+    addToCart,
+    removeFromCart,
+    updateCartQty,
+    clearCart,
     // UI state
-    loading, apiError, setApiError
+    loading,
+    apiError,
+    setApiError,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

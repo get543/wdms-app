@@ -1,0 +1,255 @@
+/* ── Keyframes ── */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInScale {
+  from { opacity: 0; transform: scale(0.92); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.85); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes bounceIn {
+  0% { opacity: 0; transform: scale(0.7); }
+  60% { opacity: 1; transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes barGrow {
+  from { width: 0; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* ── Page Transitions ── */
+.page-enter {
+  animation: fadeIn 0.35s ease;
+}
+
+.page-fade-up {
+  animation: fadeInUp 0.4s ease;
+}
+
+.page-fade-down {
+  animation: fadeInDown 0.35s ease;
+}
+
+/* ── Card / Element Entry ── */
+.fade-in {
+  animation: fadeIn 0.35s ease both;
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.4s ease both;
+}
+
+.fade-in-scale {
+  animation: fadeInScale 0.35s ease both;
+}
+
+.slide-in-right {
+  animation: slideInRight 0.35s ease both;
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.35s ease both;
+}
+
+.scale-in {
+  animation: scaleIn 0.35s ease both;
+}
+
+.bounce-in {
+  animation: bounceIn 0.45s ease both;
+}
+
+/* ── Staggered Delays ── */
+.stagger-1 { animation-delay: 0.05s; }
+.stagger-2 { animation-delay: 0.1s; }
+.stagger-3 { animation-delay: 0.15s; }
+.stagger-4 { animation-delay: 0.2s; }
+.stagger-5 { animation-delay: 0.25s; }
+.stagger-6 { animation-delay: 0.3s; }
+.stagger-7 { animation-delay: 0.35s; }
+.stagger-8 { animation-delay: 0.4s; }
+
+/* ── Hover Effects ── */
+.hover-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+.hover-scale {
+  transition: transform 0.2s ease;
+}
+.hover-scale:hover {
+  transform: scale(1.04);
+}
+
+.hover-glow {
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+.hover-glow:hover {
+  box-shadow: 0 4px 20px rgba(0,0,0,0.18);
+  transform: translateY(-2px);
+}
+
+.hover-bright {
+  transition: filter 0.2s ease;
+}
+.hover-bright:hover {
+  filter: brightness(1.08);
+}
+
+/* ── Button Active/Press ── */
+.btn-press {
+  transition: transform 0.1s ease;
+}
+.btn-press:active {
+  transform: scale(0.95);
+}
+
+/* ── Header / Top Bar ── */
+.header-enter {
+  animation: fadeInDown 0.4s ease;
+}
+
+/* ── Bottom Nav ── */
+.nav-enter {
+  animation: fadeInUp 0.3s ease;
+}
+
+.nav-indicator {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Counters / Stats ── */
+.stat-enter {
+  animation: countUp 0.5s ease both;
+}
+
+/* ── Progress / Bar Fill ── */
+.bar-fill {
+  animation: barGrow 0.8s ease both;
+  transform-origin: left;
+}
+
+/* ── Menu Cards (Grid Items) ── */
+.menu-card-enter {
+  animation: fadeInUp 0.35s ease both;
+}
+
+/* ── Chart Bars ── */
+.chart-bar {
+  animation: fadeInUp 0.5s ease both;
+}
+
+/* ── Floating / Attention ── */
+.float-anim {
+  animation: float 2.5s ease-in-out infinite;
+}
+
+.pulse-anim {
+  animation: pulse 1.8s ease-in-out infinite;
+}
+
+/* ── Loading Shimmer ── */
+.shimmer {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* ── Spinner ── */
+.spin-anim {
+  animation: spin 1s linear infinite;
+}
+
+/* ── Modal ── */
+.modal-overlay-enter {
+  animation: fadeIn 0.2s ease;
+}
+.modal-content-enter {
+  animation: slideUp 0.3s ease;
+}
+
+/* ─── Trx / List Items ─── */
+.list-item-enter {
+  animation: slideInRight 0.35s ease both;
+}
+
+/* ─── Profile / Avatar ─── */
+.avatar-enter {
+  animation: bounceIn 0.45s ease both;
+}
+
+/* ─── Badge ─── */
+.badge-enter {
+  animation: scaleIn 0.25s ease both;
+}
+
+/* ─── Quick action buttons ─── */
+.quick-btn-enter {
+  animation: fadeInUp 0.35s ease both;
+}

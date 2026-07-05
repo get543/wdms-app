@@ -8,6 +8,12 @@ Aplikasi ini terdiri dari backend Express + Node.js, frontend React + Vite, dan 
 | ------------------------------------------------------------ | ---------------------------------------------------------- |
 | ![light mode](./wdms-mobile/assets/mobile%20app%20light.png) | ![dark mode](./wdms-mobile/assets/mobile%20app%20dark.png) |
 
+
+## Download Mobile App
+
+[Releases](https://github.com/get543/wdms-app/releases/download/latest/app-release.apk)
+
+
 ---
 
 

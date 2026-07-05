@@ -34,11 +34,14 @@ router.put('/:id_menu', async (req, res) => {
     if (existing.length > 0) {
       await conn.query('UPDATE stok SET jumlah_stok = ? WHERE id_menu = ?', [jumlah_stok, id_menu]);
     } else {
-      await conn.query('INSERT INTO stok (id_menu, jumlah_stok) VALUES (?, ?)', [id_menu, jumlah_stok]);
+      await conn.query('INSERT INTO stok (id_menu, jumlah_stok) VALUES (?, ?)', [
+        id_menu,
+        jumlah_stok,
+      ]);
     }
 
     // Perbarui status menu secara otomatis
-    const newStatus = (parseInt(jumlah_stok) === 0) ? 'Habis' : 'Tersedia';
+    const newStatus = parseInt(jumlah_stok) === 0 ? 'Habis' : 'Tersedia';
     await conn.query('UPDATE menu SET status = ? WHERE id_menu = ?', [newStatus, id_menu]);
 
     await conn.commit();

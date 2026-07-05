@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../db');
-const bcrypt = require('bcryptjs');
 
 // POST /api/auth/login
 router.post('/login', async (req, res) => {
@@ -11,9 +10,7 @@ router.post('/login', async (req, res) => {
   }
 
   try {
-    const [rows] = await db.query(
-      'SELECT * FROM users WHERE username = ?', [username]
-    );
+    const [rows] = await db.query('SELECT * FROM users WHERE username = ?', [username]);
 
     if (rows.length === 0) {
       return res.status(401).json({ success: false, message: 'Username tidak ditemukan.' });
@@ -22,7 +19,7 @@ router.post('/login', async (req, res) => {
     const user = rows[0];
 
     // Cek password langsung (plaintext) atau hash
-    let isMatch = (password === user.password);
+    let isMatch = password === user.password;
     // Jika password disimpan dalam hash, gunakan:
     // let isMatch = await bcrypt.compare(password, user.password);
 
@@ -36,8 +33,8 @@ router.post('/login', async (req, res) => {
         id_user: user.id_user,
         nama: user.nama,
         username: user.username,
-        role: user.role
-      }
+        role: user.role,
+      },
     });
   } catch (err) {
     console.error('[AUTH] Login error:', err);

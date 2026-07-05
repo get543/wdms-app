@@ -33,12 +33,14 @@ router.post('/', async (req, res) => {
       [nama_menu, kategori, harga_jual, status || 'Tersedia']
     );
     const newMenuId = result.insertId;
-    await conn.query(
-      'INSERT INTO stok (id_menu, jumlah_stok) VALUES (?, ?)',
-      [newMenuId, stok || 0]
-    );
+    await conn.query('INSERT INTO stok (id_menu, jumlah_stok) VALUES (?, ?)', [
+      newMenuId,
+      stok || 0,
+    ]);
     await conn.commit();
-    res.status(201).json({ success: true, id_menu: newMenuId, message: 'Menu berhasil ditambahkan.' });
+    res
+      .status(201)
+      .json({ success: true, id_menu: newMenuId, message: 'Menu berhasil ditambahkan.' });
   } catch (err) {
     await conn.rollback();
     console.error('[MENU] POST error:', err);
@@ -67,7 +69,7 @@ router.put('/:id', async (req, res) => {
         await conn.query('INSERT INTO stok (id_menu, jumlah_stok) VALUES (?, ?)', [id, stok]);
       }
       // Perbarui status menu otomatis jika stok habis
-      const newStatus = (parseInt(stok) === 0) ? 'Habis' : 'Tersedia';
+      const newStatus = parseInt(stok) === 0 ? 'Habis' : 'Tersedia';
       await conn.query('UPDATE menu SET status=? WHERE id_menu=?', [newStatus, id]);
     }
     await conn.commit();

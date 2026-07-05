@@ -6,12 +6,14 @@ const app = express();
 const PORT = process.env.PORT;
 
 // Middleware
-app.use(cors({
-  origin: true,
-  credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
-}));
+app.use(
+  cors({
+    origin: true,
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+  })
+);
 app.use(express.json());
 
 // Routes
@@ -27,16 +29,22 @@ app.use('/api/transaksi', transaksiRoutes);
 
 // Health check
 app.get('/api/ping', (req, res) => {
-  res.json({ success: true, message: 'WDMS Backend berjalan!', timestamp: new Date().toISOString() });
+  res.json({
+    success: true,
+    message: 'WDMS Backend berjalan!',
+    timestamp: new Date().toISOString(),
+  });
 });
 
 // 404 handler
 app.use((req, res) => {
-  res.status(404).json({ success: false, message: `Endpoint ${req.method} ${req.path} tidak ditemukan.` });
+  res
+    .status(404)
+    .json({ success: false, message: `Endpoint ${req.method} ${req.path} tidak ditemukan.` });
 });
 
 // Error handler
-app.use((err, req, res, next) => {
+app.use((err, req, res, _next) => {
   console.error('[SERVER] Error:', err);
   res.status(500).json({ success: false, message: 'Internal server error.' });
 });

@@ -36,10 +36,13 @@ router.post('/', async (req, res) => {
       );
 
       // Perbarui status menu jika stok jadi 0
-      await conn.query(`
+      await conn.query(
+        `
         UPDATE menu SET status = 'Habis'
         WHERE id_menu = ? AND (SELECT jumlah_stok FROM stok WHERE id_menu = ?) <= 0
-      `, [item.id_menu, item.id_menu]);
+      `,
+        [item.id_menu, item.id_menu]
+      );
     }
 
     // 3. Buat pembayaran
@@ -63,7 +66,7 @@ router.post('/', async (req, res) => {
       id_transaksi,
       id_pesanan,
       id_pembayaran,
-      message: 'Transaksi berhasil disimpan.'
+      message: 'Transaksi berhasil disimpan.',
     });
   } catch (err) {
     await conn.rollback();
@@ -90,15 +93,20 @@ router.get('/', async (req, res) => {
     `);
 
     // Ambil juga detail item untuk setiap transaksi
-    const enriched = await Promise.all(rows.map(async (trx) => {
-      const [items] = await db.query(`
+    const enriched = await Promise.all(
+      rows.map(async (trx) => {
+        const [items] = await db.query(
+          `
         SELECT pd.jumlah AS qty, pd.harga_satuan, pd.sub_total, m.nama_menu, m.id_menu
         FROM pesanan_detail pd
         JOIN menu m ON pd.id_menu = m.id_menu
         WHERE pd.id_pesanan = ?
-      `, [trx.id_pesanan]);
-      return { ...trx, items };
-    }));
+      `,
+          [trx.id_pesanan]
+        );
+        return { ...trx, items };
+      })
+    );
 
     res.json({ success: true, data: enriched });
   } catch (err) {
@@ -112,7 +120,9 @@ router.get('/laporan', async (req, res) => {
   const { periode } = req.query; // 'hari', 'minggu', 'bulan'
   let dateFilter = 'DATE(t.tanggal_transaksi) = CURDATE()';
   if (periode === 'minggu') dateFilter = 't.tanggal_transaksi >= DATE_SUB(NOW(), INTERVAL 7 DAY)';
-  if (periode === 'bulan') dateFilter = 'MONTH(t.tanggal_transaksi) = MONTH(NOW()) AND YEAR(t.tanggal_transaksi) = YEAR(NOW())';
+  if (periode === 'bulan')
+    dateFilter =
+      'MONTH(t.tanggal_transaksi) = MONTH(NOW()) AND YEAR(t.tanggal_transaksi) = YEAR(NOW())';
 
   try {
     const [[stats]] = await db.query(`

@@ -265,6 +265,20 @@ class _CommonWebViewState extends State<CommonWebView> {
                 onDownloadStartRequest: (controller, request) {
                   _downloadFile(request);
                 },
+
+                onLoadStop: (controller, url) async {
+                  // This removes the gray/blue highlight that appears when tapping elements
+                  // and prevents the long-press menu from appearing on links/images.
+                  await controller.injectCSSCode(
+                    source: """
+                      * {
+                        -webkit-tap-highlight-color: transparent !important;
+                        -webkit-touch-callout: none !important;
+                        outline: none !important;
+                      }
+                    """,
+                  );
+                },
               ),
 
               // Only show if progress is less than 1.0 (100%)

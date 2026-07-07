@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { IconChevronLeft, IconPlus, IconEdit, IconTrash, IconX, IconCheck } from '@tabler/icons-react';
+import { IconChevronLeft, IconPlus, IconEdit, IconTrash } from '@tabler/icons-react';
 import { getUsers, createUser, updateUser, deleteUser } from '../../services/api';
 
 export default function KelolaKasir() {
@@ -13,7 +13,7 @@ export default function KelolaKasir() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [selectedId, setSelectedId] = useState(null);
-  
+
   const [formData, setFormData] = useState({
     nama: '',
     username: '',
@@ -29,6 +29,7 @@ export default function KelolaKasir() {
       }
     } catch (err) {
       setError('Gagal mengambil daftar kasir.');
+      console.error(err);
     } finally {
       setLoading(false);
     }
@@ -89,6 +90,7 @@ export default function KelolaKasir() {
         fetchKasir();
       } catch (err) {
         alert('Gagal menghapus kasir.');
+        console.error(err);
       }
     }
   };
@@ -136,7 +138,7 @@ export default function KelolaKasir() {
         <div className="modal-overlay-enter" style={styles.modalOverlay}>
           <div className="modal-content-enter" style={styles.modalContent}>
             <h3 style={styles.modalTitle}>{isEditing ? 'Edit Akun Kasir' : 'Tambah Akun Kasir'}</h3>
-            
+
             {error && <div style={styles.errorMsg}>{error}</div>}
 
             <div style={styles.formGroup}>
@@ -149,7 +151,7 @@ export default function KelolaKasir() {
                 placeholder="Misal: Budi Santoso"
               />
             </div>
-            
+
             <div style={styles.formGroup}>
               <label style={styles.label}>Username</label>
               <input
@@ -160,9 +162,11 @@ export default function KelolaKasir() {
                 placeholder="Misal: budi_kasir"
               />
             </div>
-            
+
             <div style={styles.formGroup}>
-              <label style={styles.label}>{isEditing ? 'Password Baru (Opsional)' : 'Password'}</label>
+              <label style={styles.label}>
+                {isEditing ? 'Password Baru (Opsional)' : 'Password'}
+              </label>
               <input
                 style={styles.input}
                 type="password"
@@ -174,8 +178,12 @@ export default function KelolaKasir() {
             </div>
 
             <div style={styles.modalActions}>
-              <button style={styles.cancelBtn} onClick={() => setIsModalOpen(false)}>Batal</button>
-              <button style={styles.saveBtn} onClick={handleSave}>Simpan</button>
+              <button style={styles.cancelBtn} onClick={() => setIsModalOpen(false)}>
+                Batal
+              </button>
+              <button style={styles.saveBtn} onClick={handleSave}>
+                Simpan
+              </button>
             </div>
           </div>
         </div>
@@ -222,7 +230,13 @@ const styles = {
     boxShadow: '0 4px 12px rgba(201,64,64,0.3)',
   },
   content: { padding: '20px 16px', flex: 1, overflowY: 'auto', marginTop: '-20px' },
-  emptyState: { textAlign: 'center', marginTop: '40px', color: '#888780', fontSize: '14px', fontWeight: '600' },
+  emptyState: {
+    textAlign: 'center',
+    marginTop: '40px',
+    color: '#888780',
+    fontSize: '14px',
+    fontWeight: '600',
+  },
   list: { display: 'flex', flexDirection: 'column', gap: '12px' },
   card: {
     background: '#fff',
@@ -248,9 +262,15 @@ const styles = {
     cursor: 'pointer',
   },
   modalOverlay: {
-    position: 'fixed', top: 0, left: 0, right: 0, bottom: 0,
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
     background: 'rgba(0,0,0,0.5)',
-    display: 'flex', alignItems: 'flex-end', justifyContent: 'center',
+    display: 'flex',
+    alignItems: 'flex-end',
+    justifyContent: 'center',
     zIndex: 1000,
   },
   modalContent: {
@@ -263,23 +283,56 @@ const styles = {
   },
   modalTitle: { fontSize: '18px', fontWeight: '800', color: '#2C2C2A', marginBottom: '20px' },
   formGroup: { marginBottom: '16px' },
-  label: { display: 'block', fontSize: '12px', color: '#888780', fontWeight: '600', marginBottom: '8px' },
+  label: {
+    display: 'block',
+    fontSize: '12px',
+    color: '#888780',
+    fontWeight: '600',
+    marginBottom: '8px',
+  },
   input: {
-    width: '100%', padding: '14px', borderRadius: '12px', border: '1.5px solid #EAE5DA',
-    background: '#F8F7F3', fontSize: '14px', color: '#2C2C2A', outline: 'none',
-    boxSizing: 'border-box', fontFamily: 'inherit'
+    width: '100%',
+    padding: '14px',
+    borderRadius: '12px',
+    border: '1.5px solid #EAE5DA',
+    background: '#F8F7F3',
+    fontSize: '14px',
+    color: '#2C2C2A',
+    outline: 'none',
+    boxSizing: 'border-box',
+    fontFamily: 'inherit',
   },
   modalActions: { display: 'flex', gap: '12px', marginTop: '24px' },
   cancelBtn: {
-    flex: 1, padding: '14px', borderRadius: '12px', border: '1.5px solid #EAE5DA',
-    background: '#fff', color: '#5F5E5A', fontWeight: '700', fontSize: '14px', cursor: 'pointer'
+    flex: 1,
+    padding: '14px',
+    borderRadius: '12px',
+    border: '1.5px solid #EAE5DA',
+    background: '#fff',
+    color: '#5F5E5A',
+    fontWeight: '700',
+    fontSize: '14px',
+    cursor: 'pointer',
   },
   saveBtn: {
-    flex: 1, padding: '14px', borderRadius: '12px', border: 'none',
-    background: '#C94040', color: '#fff', fontWeight: '700', fontSize: '14px', cursor: 'pointer'
+    flex: 1,
+    padding: '14px',
+    borderRadius: '12px',
+    border: 'none',
+    background: '#C94040',
+    color: '#fff',
+    fontWeight: '700',
+    fontSize: '14px',
+    cursor: 'pointer',
   },
   errorMsg: {
-    background: '#FCE8E8', color: '#C94040', padding: '12px', borderRadius: '8px',
-    fontSize: '14px', marginBottom: '16px', textAlign: 'center', fontWeight: '600',
-  }
+    background: '#FCE8E8',
+    color: '#C94040',
+    padding: '12px',
+    borderRadius: '8px',
+    fontSize: '14px',
+    marginBottom: '16px',
+    textAlign: 'center',
+    fontWeight: '600',
+  },
 };

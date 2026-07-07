@@ -137,7 +137,11 @@ export default function ProfilSaya() {
             <button style={styles.cancelBtn} onClick={handleCancel} disabled={loading}>
               <IconX size={20} /> Batal
             </button>
-            <button style={{ ...styles.saveBtn, background: primaryColor }} onClick={handleSave} disabled={loading}>
+            <button
+              style={{ ...styles.saveBtn, background: primaryColor }}
+              onClick={handleSave}
+              disabled={loading}
+            >
               <IconCheck size={20} /> {loading ? 'Menyimpan...' : 'Simpan'}
             </button>
           </div>

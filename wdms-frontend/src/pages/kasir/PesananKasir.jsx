@@ -1,13 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppContext } from '../../context/AppContext';
-import {
-  IconChevronLeft,
-  IconPlus,
-  IconClipboardList,
-  IconCreditCard,
-  IconArrowRight,
-} from '@tabler/icons-react';
+import { IconPlus, IconClipboardList, IconCreditCard, IconArrowRight } from '@tabler/icons-react';
 
 export default function PesananKasir() {
   const { menus, cart, addToCart, removeFromCart } = useAppContext();

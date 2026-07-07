@@ -25,16 +25,16 @@ export default function TentangAplikasi() {
           </div>
           <h2 style={styles.title}>Warteg Data Management System (WDMS)</h2>
           <p style={styles.version}>Versi 1.0.0</p>
-          
+
           <div style={styles.description}>
             <p>
-              Aplikasi ini dikembangkan untuk mempermudah pengelolaan operasional warteg, 
-              mulai dari pencatatan pesanan oleh kasir, hingga pemantauan pendapatan 
-              dan manajemen stok oleh pemilik.
+              Aplikasi ini dikembangkan untuk mempermudah pengelolaan operasional warteg, mulai dari
+              pencatatan pesanan oleh kasir, hingga pemantauan pendapatan dan manajemen stok oleh
+              pemilik.
             </p>
             <p>
-              Dengan sistem yang terintegrasi, diharapkan pelayanan kepada pelanggan 
-              menjadi lebih cepat dan pembukuan menjadi lebih transparan.
+              Dengan sistem yang terintegrasi, diharapkan pelayanan kepada pelanggan menjadi lebih
+              cepat dan pembukuan menjadi lebih transparan.
             </p>
           </div>
         </div>

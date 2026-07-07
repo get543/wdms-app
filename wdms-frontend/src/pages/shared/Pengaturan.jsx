@@ -37,9 +37,23 @@ export default function Pengaturan() {
         </div>
 
         <div className="fade-in-up stagger-2" style={styles.menuGroup}>
-          <MenuItem icon={<IconUser size={20} />} label="Profil Saya" onClick={() => navigate('/profil')} />
-          {isPemilik && <MenuItem icon={<IconUsers size={20} />} label="Kelola Akun Kasir" onClick={() => navigate('/kelola-kasir')} />}
-          <MenuItem icon={<IconInfoCircle size={20} />} label="Tentang Aplikasi" onClick={() => navigate('/tentang')} />
+          <MenuItem
+            icon={<IconUser size={20} />}
+            label="Profil Saya"
+            onClick={() => navigate('/profil')}
+          />
+          {isPemilik && (
+            <MenuItem
+              icon={<IconUsers size={20} />}
+              label="Kelola Akun Kasir"
+              onClick={() => navigate('/kelola-kasir')}
+            />
+          )}
+          <MenuItem
+            icon={<IconInfoCircle size={20} />}
+            label="Tentang Aplikasi"
+            onClick={() => navigate('/tentang')}
+          />
         </div>
 
         <button

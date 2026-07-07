@@ -158,6 +158,7 @@ export const AppProvider = ({ children }) => {
       });
       clearCart();
       await fetchMenus(); // Refresh menu stok
+      await fetchTransaksi(); // Refresh riwayat transaksi agar langsung muncul
       return { success: true, ...res.data };
     } catch (err) {
       const msg = handleErr(err, 'Gagal menyimpan transaksi.');

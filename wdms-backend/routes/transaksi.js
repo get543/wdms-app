@@ -186,40 +186,7 @@ router.get('/laporan', async (req, res) => {
       chartLabels = labels.slice(0, maxWeeks);
       chartData = values.slice(0, maxWeeks);
     } else {
-      // const [rows] = await db.query(`
-      //   SELECT HOUR(t.tanggal_transaksi) AS hour, COUNT(*) AS count
-      //   FROM transaksi t
-      //   WHERE DATE(t.tanggal_transaksi) = CURDATE()
-      //   GROUP BY HOUR(t.tanggal_transaksi)
-      //   ORDER BY HOUR(t.tanggal_transaksi)
-      // `);
-
-      // const hourValues = rows.map((row) => Number(row.hour));
-      // const labels = [];
-      // const values = [];
-
-      // if (hourValues.length > 0) {
-      //   const minHour = Math.min(...hourValues);
-      //   const maxHour = Math.max(...hourValues);
-      //   const startHour = minHour % 2 === 0 ? minHour : Math.max(0, minHour - 1);
-      //   const endHour = maxHour % 2 === 0 ? maxHour : Math.min(23, maxHour + 1);
-
-      //   for (let hour = startHour; hour <= endHour; hour += 2) {
-      //     labels.push(`${String(hour).padStart(2, '0')}:00`);
-      //     const row = rows.find((r) => Number(r.hour) === hour);
-      //     values.push(row ? row.count : 0);
-      //   }
-      // } else {
-      //   ['06:00', '08:00', '10:00', '12:00', '14:00', '16:00', '18:00'].forEach((label) => {
-      //     labels.push(label);
-      //     values.push(0);
-      //   });
-      // }
-
-      // chartLabels = labels;
-      // chartData = values;
-
-      // PERBAIKAN: Ambil semua jam yang ada hari ini
+      // Ambil semua jam yang ada hari ini
       const [rows] = await db.query(`
         SELECT HOUR(t.tanggal_transaksi) AS hour, COUNT(*) AS count
         FROM transaksi t
@@ -230,7 +197,7 @@ router.get('/laporan', async (req, res) => {
       const labels = [];
       const values = [];
 
-      // Loop dari jam 00 sampai 22 dengan langkah 2 jam
+      // Loop dari jam 00 sampai 24 dengan langkah 2 jam
       for (let hour = 0; hour < 24; hour += 2) {
         labels.push(`${String(hour).padStart(2, '0')}:00`);
 

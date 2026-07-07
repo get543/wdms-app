@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppContext } from '../../context/AppContext';
-import { IconArrowLeft, IconReceipt, IconCash, IconQrcode, IconCheck } from '@tabler/icons-react';
+import { IconChevronLeft, IconReceipt, IconCash, IconQrcode, IconCheck } from '@tabler/icons-react';
 
 export default function ProsesPembayaran() {
   const { cart, addTransaction } = useAppContext();
@@ -75,9 +75,11 @@ export default function ProsesPembayaran() {
   return (
     <div className="page-enter" style={styles.container}>
       <div className="header-enter" style={styles.topBar}>
-        <div style={styles.topBack} onClick={() => navigate(-1)}>
-          <IconArrowLeft size={16} /> Proses Pembayaran
-        </div>
+        <button style={styles.backBtn} onClick={() => navigate(-1)}>
+          <IconChevronLeft size={24} />
+        </button>
+        <div style={styles.topTitle}>Proses Pembayaran</div>
+        <div style={{ width: 36 }} />
       </div>
 
       <div style={styles.body}>
@@ -175,18 +177,24 @@ const styles = {
   container: { height: '100%', display: 'flex', flexDirection: 'column', position: 'relative' },
   topBar: {
     background: '#1D9E75',
-    padding: '14px 18px 42px',
-    position: 'relative',
-    borderRadius: '0 0 28px 28px',
+    padding: '24px 20px 40px',
+    borderRadius: '0 0 24px 24px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    color: '#fff',
   },
-  topBack: {
-    fontSize: '13px',
-    fontWeight: '700',
-    color: 'rgba(255,255,255,0.9)',
+  topTitle: { fontSize: '18px', fontWeight: '800' },
+  backBtn: {
+    background: 'rgba(255,255,255,0.2)',
+    border: 'none',
+    color: '#fff',
+    borderRadius: '8px',
+    width: '36px',
+    height: '36px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    gap: '5px',
     cursor: 'pointer',
   },
   body: { padding: '32px 16px 24px', flex: 1, overflowY: 'auto' },

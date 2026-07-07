@@ -4,8 +4,6 @@ import { useAppContext } from '../../context/AppContext';
 import {
   IconUser,
   IconUsers,
-  IconBell,
-  IconCloudDownload,
   IconInfoCircle,
   IconLogout,
   IconChevronRight,
@@ -39,11 +37,9 @@ export default function Pengaturan() {
         </div>
 
         <div className="fade-in-up stagger-2" style={styles.menuGroup}>
-          <MenuItem icon={<IconUser size={20} />} label="Profil Saya" />
-          {isPemilik && <MenuItem icon={<IconUsers size={20} />} label="Kelola Akun Kasir" />}
-          <MenuItem icon={<IconBell size={20} />} label="Notifikasi" />
-          <MenuItem icon={<IconCloudDownload size={20} />} label="Backup Data" />
-          <MenuItem icon={<IconInfoCircle size={20} />} label="Tentang Aplikasi" />
+          <MenuItem icon={<IconUser size={20} />} label="Profil Saya" onClick={() => navigate('/profil')} />
+          {isPemilik && <MenuItem icon={<IconUsers size={20} />} label="Kelola Akun Kasir" onClick={() => navigate('/kelola-kasir')} />}
+          <MenuItem icon={<IconInfoCircle size={20} />} label="Tentang Aplikasi" onClick={() => navigate('/tentang')} />
         </div>
 
         <button
@@ -58,9 +54,9 @@ export default function Pengaturan() {
   );
 }
 
-function MenuItem({ icon, label }) {
+function MenuItem({ icon, label, onClick }) {
   return (
-    <div className="hover-lift" style={styles.menuItem}>
+    <div className="hover-lift" style={styles.menuItem} onClick={onClick}>
       <div style={styles.menuItemLeft}>
         <div style={styles.menuIcon}>{icon}</div>
         <div style={styles.menuLabel}>{label}</div>

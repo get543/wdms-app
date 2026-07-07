@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppContext } from '../../context/AppContext';
 import {
-  IconArrowLeft,
+  IconChevronLeft,
   IconPlus,
   IconClipboardList,
   IconCreditCard,
@@ -33,10 +33,7 @@ export default function PesananKasir() {
   return (
     <div className="page-enter" style={styles.container}>
       <div className="header-enter" style={styles.topBar}>
-        <div style={styles.topBack} onClick={() => navigate(-1)}>
-          <IconArrowLeft size={16} /> Beranda
-        </div>
-        <div style={styles.topTitle}>Pesanan Baru</div>
+        <div style={styles.headerTitle}>Pesanan Baru</div>
       </div>
 
       <div style={styles.body}>
@@ -127,21 +124,29 @@ const styles = {
   container: { height: '100%', display: 'flex', flexDirection: 'column', position: 'relative' },
   topBar: {
     background: '#1D9E75',
-    padding: '14px 18px 40px',
-    position: 'relative',
-    borderRadius: '0 0 28px 28px',
-  },
-  topTitle: { fontSize: '18px', fontWeight: '800', color: '#fff', textAlign: 'center' },
-  topBack: {
-    position: 'absolute',
-    left: '16px',
-    top: '14px',
-    color: 'rgba(255,255,255,0.85)',
-    fontSize: '13px',
-    fontWeight: '700',
+    padding: '24px 20px 40px',
+    borderRadius: '0 0 24px 24px',
     display: 'flex',
     alignItems: 'center',
-    gap: '4px',
+    justifyContent: 'center',
+    color: '#fff',
+  },
+  headerTitle: {
+    fontSize: '18px',
+    fontWeight: '800',
+    color: '#fff',
+    textAlign: 'center',
+  },
+  backBtn: {
+    background: 'rgba(255,255,255,0.2)',
+    border: 'none',
+    color: '#fff',
+    borderRadius: '8px',
+    width: '36px',
+    height: '36px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
     cursor: 'pointer',
   },
   body: { padding: '30px 14px 90px', flex: 1, overflowY: 'auto' },

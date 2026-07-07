@@ -21,11 +21,13 @@ const authRoutes = require('./routes/auth');
 const menuRoutes = require('./routes/menu');
 const stokRoutes = require('./routes/stok');
 const transaksiRoutes = require('./routes/transaksi');
+const userRoutes = require('./routes/users');
 
 app.use('/api/auth', authRoutes);
 app.use('/api/menu', menuRoutes);
 app.use('/api/stok', stokRoutes);
 app.use('/api/transaksi', transaksiRoutes);
+app.use('/api/users', userRoutes);
 
 // Health check
 app.get('/api/ping', (req, res) => {

@@ -65,7 +65,7 @@ export default function Login() {
             style={styles.input}
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            placeholder={role === 'Pemilik' ? 'pemilik' : 'kasir'}
+            placeholder="Masukkan Username"
             autoCapitalize="none"
           />
         </div>
@@ -76,7 +76,7 @@ export default function Login() {
             style={styles.input}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            placeholder="password123"
+            placeholder="Masukkan Password"
           />
         </div>
 
@@ -88,19 +88,9 @@ export default function Login() {
           style={{ ...styles.submitBtn, opacity: isLoading ? 0.7 : 1 }}
           disabled={isLoading}
         >
-          {isLoading ? 'Memverifikasi...' : 'Masuk →'}
+          {isLoading ? 'Memverifikasi...' : 'Masuk'}
         </button>
       </form>
-
-      <div className="fade-in-up stagger-3" style={styles.hint}>
-        <div style={styles.hintTitle}>Akun Demo:</div>
-        <div style={styles.hintText}>
-          Pemilik: <b>pemilik</b> / <b>password123</b>
-        </div>
-        <div style={styles.hintText}>
-          Kasir: <b>kasir</b> / <b>password123</b>
-        </div>
-      </div>
     </div>
   );
 }

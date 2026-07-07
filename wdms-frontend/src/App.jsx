@@ -15,6 +15,8 @@ import LaporanPenjualan from './pages/pemilik/LaporanPenjualan';
 import ManajemenStok from './pages/pemilik/ManajemenStok';
 import RiwayatTransaksi from './pages/kasir/RiwayatTransaksi';
 import Pengaturan from './pages/shared/Pengaturan';
+// import Profil from './pages/shared/Profil';
+// import Tentang from './pages/shared/Tentang';
 
 function ProtectedRoute({ children, role }) {
   const { user } = useAppContext();
@@ -116,6 +118,22 @@ function MainApp() {
             </ProtectedRoute>
           }
         />
+        {/* <Route
+          path="/profil"
+          element={
+            <ProtectedRoute>
+              <Profil />
+            </ProtectedRoute>
+          }
+        /> */}
+        {/* <Route
+          path="/tentang"
+          element={
+            <ProtectedRoute>
+              <Tentang />
+            </ProtectedRoute>
+          }
+        /> */}
       </Routes>
       <BottomNav />
     </div>

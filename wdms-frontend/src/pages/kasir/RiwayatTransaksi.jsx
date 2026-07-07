@@ -106,7 +106,11 @@ export default function RiwayatTransaksi() {
             </div>
           );
         })}
-          {filtered.length === 0 && <div className="fade-in" style={styles.empty}>Belum ada transaksi.</div>}
+        {filtered.length === 0 && (
+          <div className="fade-in" style={styles.empty}>
+            Belum ada transaksi.
+          </div>
+        )}
       </div>
     </div>
   );

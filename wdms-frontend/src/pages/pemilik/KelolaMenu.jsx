@@ -246,8 +246,16 @@ export default function KelolaMenu() {
 
       {/* ── Modal Tambah/Edit Menu ── */}
       {showFormModal && (
-        <div className="modal-overlay-enter" style={styles.modalOverlay} onClick={resetAndCloseModal}>
-          <div className="modal-content-enter" style={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+        <div
+          className="modal-overlay-enter"
+          style={styles.modalOverlay}
+          onClick={resetAndCloseModal}
+        >
+          <div
+            className="modal-content-enter"
+            style={styles.modalContent}
+            onClick={(e) => e.stopPropagation()}
+          >
             <div style={styles.modalHeader}>
               <div style={styles.modalTitle}>{editingMenu ? 'Edit Menu' : 'Tambah Menu Baru'}</div>
               <button style={styles.closeBtn} onClick={resetAndCloseModal}>

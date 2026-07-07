@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppContext } from '../../context/AppContext';
 import { IconArrowLeft, IconReceipt, IconCash, IconQrcode, IconCheck } from '@tabler/icons-react';
@@ -10,10 +10,27 @@ export default function ProsesPembayaran() {
   const total = cart.reduce((sum, item) => sum + item.harga * item.qty, 0);
 
   const [paid, setPaid] = useState(total);
+  const [paidInput, setPaidInput] = useState(total.toString());
   const [method, setMethod] = useState('Tunai');
+
+  useEffect(() => {
+    setPaid(total);
+    setPaidInput(total.toString());
+  }, [total]);
 
   const formatIDR = (num) => `Rp ${num.toLocaleString('id-ID')}`;
   const kembalian = Math.max(0, paid - total);
+
+  const cleanNumber = (value) => {
+    const digits = String(value).replace(/\D/g, '');
+    return digits ? Number(digits) : 0;
+  };
+
+  const handlePaidChange = (event) => {
+    const value = event.target.value;
+    setPaidInput(value);
+    setPaid(cleanNumber(value));
+  };
 
   // If cart is empty (e.g. page refreshed), redirect
   if (cart.length === 0) {
@@ -83,20 +100,34 @@ export default function ProsesPembayaran() {
           </div>
         </div>
 
-        <div className="fade-in-up stagger-2" style={styles.sectionLabel}>Jumlah Bayar</div>
+        <div className="fade-in-up stagger-2" style={styles.sectionLabel}>
+          Jumlah Bayar
+        </div>
         <div className="fade-in-scale stagger-2" style={styles.amountCard}>
           <div style={styles.amountHint}>Uang diterima</div>
           <div style={styles.amountVal}>{formatIDR(paid)}</div>
+          <input
+            type="text"
+            value={paidInput}
+            onChange={handlePaidChange}
+            placeholder="Masukkan nominal pembayaran"
+            style={styles.paidInput}
+          />
         </div>
 
-        <div className="fade-in-up stagger-3" style={styles.quickLabel}>Nominal Cepat:</div>
+        <div className="fade-in-up stagger-3" style={styles.quickLabel}>
+          Nominal Cepat:
+        </div>
         <div className="fade-in-up stagger-3" style={styles.quickRow}>
           {[total, 20000, 50000].map((val) => (
             <div
               key={val}
               className="btn-press hover-scale"
               style={paid === val ? styles.quickPillActive : styles.quickPill}
-              onClick={() => setPaid(val)}
+              onClick={() => {
+                setPaid(val);
+                setPaidInput(val.toString());
+              }}
             >
               {val === total ? 'PAS' : `${val / 1000}K`}
             </div>
@@ -108,7 +139,9 @@ export default function ProsesPembayaran() {
           <div style={styles.kembalianVal}>{formatIDR(kembalian)}</div>
         </div>
 
-        <div className="fade-in-up stagger-5" style={styles.metodeLabel}>Metode Bayar:</div>
+        <div className="fade-in-up stagger-5" style={styles.metodeLabel}>
+          Metode Bayar:
+        </div>
         <div className="fade-in-up stagger-5" style={styles.metodeRow}>
           <button
             className="btn-press"
@@ -126,7 +159,11 @@ export default function ProsesPembayaran() {
           </button>
         </div>
 
-        <button className="btn-press hover-bright fade-in-up stagger-6" style={styles.confirmBtn} onClick={handleConfirm}>
+        <button
+          className="btn-press hover-bright fade-in-up stagger-6"
+          style={styles.confirmBtn}
+          onClick={handleConfirm}
+        >
           <IconCheck size={20} /> Konfirmasi Bayar
         </button>
       </div>
@@ -194,6 +231,17 @@ const styles = {
     border: '2px solid #1D9E75',
     marginBottom: '14px',
     textAlign: 'center',
+  },
+  paidInput: {
+    width: '100%',
+    marginTop: '10px',
+    padding: '12px 14px',
+    borderRadius: '14px',
+    border: '1.5px solid #D3D1C7',
+    fontSize: '14px',
+    fontFamily: 'inherit',
+    textAlign: 'center',
+    outline: 'none',
   },
   amountHint: { fontSize: '11px', fontWeight: '700', color: '#0F6E56', marginBottom: '4px' },
   amountVal: { fontSize: '28px', fontWeight: '800', color: '#1D9E75' },

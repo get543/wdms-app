@@ -53,8 +53,14 @@ export default function StrukPembayaran() {
   if (!currentTrx) {
     return (
       <div style={styles.container}>
-        <div className="fade-in" style={styles.body}>Data transaksi tidak ditemukan.</div>
-        <button className="btn-press hover-bright fade-in-up stagger-1" style={styles.newTrxBtn} onClick={() => navigate('/pesan')}>
+        <div className="fade-in" style={styles.body}>
+          Data transaksi tidak ditemukan.
+        </div>
+        <button
+          className="btn-press hover-bright fade-in-up stagger-1"
+          style={styles.newTrxBtn}
+          onClick={() => navigate('/pesan')}
+        >
           <IconPlus size={18} /> Transaksi Baru
         </button>
       </div>

@@ -10,7 +10,7 @@ import {
 } from '@tabler/icons-react';
 
 export default function PesananKasir() {
-  const { menus, cart, addToCart } = useAppContext();
+  const { menus, cart, addToCart, removeFromCart } = useAppContext();
   const navigate = useNavigate();
   const [filter, setFilter] = useState('Semua');
 
@@ -87,9 +87,18 @@ export default function PesananKasir() {
             </div>
             {cart.map((item, idx) => (
               <div key={idx} style={styles.orderRow}>
-                <span>
-                  {item.nama} x{item.qty}
-                </span>
+                <div style={styles.orderItemLabel}>
+                  <span>
+                    {item.nama} x{item.qty}
+                  </span>
+                  <button
+                    type="button"
+                    style={styles.removeItemBtn}
+                    onClick={() => removeFromCart(item.id)}
+                  >
+                    Hapus
+                  </button>
+                </div>
                 <span>{formatIDR(item.harga * item.qty)}</span>
               </div>
             ))}
@@ -101,12 +110,12 @@ export default function PesananKasir() {
           </div>
         )}
 
-          <button
-            className="btn-press hover-bright fade-in-up"
-            style={{ ...styles.payBtn, opacity: cart.length > 0 ? 1 : 0.5 }}
-            disabled={cart.length === 0}
-            onClick={() => navigate('/bayar')}
-          >
+        <button
+          className="btn-press hover-bright fade-in-up"
+          style={{ ...styles.payBtn, opacity: cart.length > 0 ? 1 : 0.5 }}
+          disabled={cart.length === 0}
+          onClick={() => navigate('/bayar')}
+        >
           <IconCreditCard size={18} /> Lanjut Bayar <IconArrowRight size={18} />
         </button>
       </div>
@@ -259,6 +268,24 @@ const styles = {
     color: '#0F6E56',
     fontWeight: '600',
     marginBottom: '4px',
+    gap: '10px',
+    alignItems: 'center',
+  },
+  orderItemLabel: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '10px',
+  },
+  removeItemBtn: {
+    background: '#F5C4B3',
+    color: '#993C1D',
+    border: 'none',
+    borderRadius: '12px',
+    padding: '4px 10px',
+    fontSize: '11px',
+    fontWeight: '700',
+    cursor: 'pointer',
+    transition: 'background 0.2s ease',
   },
   orderDivider: { border: 'none', borderTop: '1px dashed #5DCAA5', margin: '8px 0' },
   orderTotal: {

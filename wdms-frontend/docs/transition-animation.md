@@ -23,6 +23,7 @@ Let me first explore the codebase to understand the structure, then implement an
 **Tool: read**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src"
@@ -30,6 +31,7 @@ Let me first explore the codebase to understand the structure, then implement an
 ```
 
 **Output:**
+
 ```
 <path>E:\UDIN\Kuliah\Mata Kuliah\Rekayasa Perangkat Lunak\Tugas 6\wdms-app\wdms-frontend\src</path>
 <type>directory</type>
@@ -52,6 +54,7 @@ services/
 **Tool: read**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\index.css"
@@ -59,18 +62,19 @@ services/
 ```
 
 **Output:**
+
 ```
 <path>E:\UDIN\Kuliah\Mata Kuliah\Rekayasa Perangkat Lunak\Tugas 6\wdms-app\wdms-frontend\src\index.css</path>
 <type>file</type>
 <content>
 1: @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
-2: 
+2:
 3: * {
 4:   box-sizing: border-box;
 5:   margin: 0;
 6:   padding: 0;
 7: }
-8: 
+8:
 9: body {
 10:   font-family: 'Nunito', sans-serif;
 11:   background-color: #313130; /* Background color outside the app container */
@@ -82,7 +86,7 @@ services/
 17:   height: 100%;
 18:   margin: 0;
 19: }
-20: 
+20:
 21: #root {
 22:   width: 100%;
 23:   height: 100%;
@@ -91,7 +95,7 @@ services/
 26:   align-items: center;
 27:   justify-content: center;
 28: }
-29: 
+29:
 30: /* App Container wrapper */
 31: .app-container {
 32:   background: #f5f0e8;
@@ -107,19 +111,19 @@ services/
 42:   position: relative;
 43:   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 44: }
-45: 
+45:
 46: @media (min-width: 400px) {
 47:   .app-container {
 48:     height: 100vh;
 49:     /* border-radius: 32px; */
 50:   }
 51: }
-52: 
+52:
 53: /* Scrollbar hiding for cleaner UI */
 54: ::-webkit-scrollbar {
 55:   display: none;
 56: }
-57: 
+57:
 58: /* ANIMASI */
 59: @keyframes fadeIn {
 60:   from {
@@ -129,7 +133,7 @@ services/
 64:     opacity: 1;
 65:   }
 66: }
-67: 
+67:
 68: @keyframes slideUp {
 69:   from {
 70:     transform: translateY(100%);
@@ -138,7 +142,7 @@ services/
 73:     transform: translateY(0);
 74:   }
 75: }
-76: 
+76:
 77: @keyframes spin {
 78:   from {
 79:     transform: rotate(0deg);
@@ -163,6 +167,7 @@ Let me explore the components and pages directories to understand the structure.
 **Tool: read**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\components"
@@ -170,6 +175,7 @@ Let me explore the components and pages directories to understand the structure.
 ```
 
 **Output:**
+
 ```
 <path>E:\UDIN\Kuliah\Mata Kuliah\Rekayasa Perangkat Lunak\Tugas 6\wdms-app\wdms-frontend\src\components</path>
 <type>directory</type>
@@ -183,6 +189,7 @@ BottomNav.jsx
 **Tool: read**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages"
@@ -190,6 +197,7 @@ BottomNav.jsx
 ```
 
 **Output:**
+
 ```
 <path>E:\UDIN\Kuliah\Mata Kuliah\Rekayasa Perangkat Lunak\Tugas 6\wdms-app\wdms-frontend\src\pages</path>
 <type>directory</type>
@@ -213,6 +221,7 @@ Let me explore deeper into the pages directory.
 **Tool: read**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\kasir"
@@ -220,6 +229,7 @@ Let me explore deeper into the pages directory.
 ```
 
 **Output:**
+
 ```
 <path>E:\UDIN\Kuliah\Mata Kuliah\Rekayasa Perangkat Lunak\Tugas 6\wdms-app\wdms-frontend\src\pages\kasir</path>
 <type>directory</type>
@@ -237,6 +247,7 @@ StrukPembayaran.jsx
 **Tool: read**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\pemilik"
@@ -244,6 +255,7 @@ StrukPembayaran.jsx
 ```
 
 **Output:**
+
 ```
 <path>E:\UDIN\Kuliah\Mata Kuliah\Rekayasa Perangkat Lunak\Tugas 6\wdms-app\wdms-frontend\src\pages\pemilik</path>
 <type>directory</type>
@@ -260,6 +272,7 @@ ManajemenStok.jsx
 **Tool: read**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\shared"
@@ -267,6 +280,7 @@ ManajemenStok.jsx
 ```
 
 **Output:**
+
 ```
 <path>E:\UDIN\Kuliah\Mata Kuliah\Rekayasa Perangkat Lunak\Tugas 6\wdms-app\wdms-frontend\src\pages\shared</path>
 <type>directory</type>
@@ -281,6 +295,7 @@ Pengaturan.jsx
 **Tool: read**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\components\\BottomNav.jsx"
@@ -288,6 +303,7 @@ Pengaturan.jsx
 ```
 
 **Output:**
+
 ```
 <path>E:\UDIN\Kuliah\Mata Kuliah\Rekayasa Perangkat Lunak\Tugas 6\wdms-app\wdms-frontend\src\components\BottomNav.jsx</path>
 <type>file</type>
@@ -304,14 +320,14 @@ Pengaturan.jsx
 10:   IconBuildingWarehouse,
 11: } from '@tabler/icons-react';
 12: import { useAppContext } from '../context/AppContext';
-13: 
+13:
 14: export default function BottomNav() {
 15:   const { user } = useAppContext();
 16:   const location = useLocation();
-17: 
+17:
 18:   // Don't show on login page, payment, or receipt
 19:   if (!user || ['/', '/bayar', '/struk'].includes(location.pathname)) return null;
-20: 
+20:
 21:   return (
 22:     <div style={styles.navContainer}>
 23:       {user.role === 'Pemilik' ? (
@@ -333,7 +349,7 @@ Pengaturan.jsx
 39:     </div>
 40:   );
 41: }
-42: 
+42:
 43: function NavItem({ to, icon, label }) {
 44:   return (
 45:     <NavLink
@@ -353,7 +369,7 @@ Pengaturan.jsx
 59:     </NavLink>
 60:   );
 61: }
-62: 
+62:
 63: const styles = {
 64:   navContainer: {
 65:     position: 'absolute',
@@ -406,6 +422,7 @@ Let me read all the page files to understand the full structure.
 **Tool: read**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\kasir\\DashboardKasir.jsx"
@@ -413,6 +430,7 @@ Let me read all the page files to understand the full structure.
 ```
 
 **Output:**
+
 ```
 <path>E:\UDIN\Kuliah\Mata Kuliah\Rekayasa Perangkat Lunak\Tugas 6\wdms-app\wdms-frontend\src\pages\kasir\DashboardKasir.jsx</path>
 <type>file</type>
@@ -421,23 +439,23 @@ Let me read all the page files to understand the full structure.
 2: import { useNavigate } from 'react-router-dom';
 3: import { useAppContext } from '../../context/AppContext';
 4: import { IconClipboardList, IconHistory } from '@tabler/icons-react';
-5: 
+5:
 6: export default function DashboardKasir() {
 7:   const { user, transactions } = useAppContext();
 8:   const navigate = useNavigate();
-9: 
+9:
 10:   const today = new Date().toISOString().split('T')[0];
 11:   const displayName = user?.nama || user?.name || 'Kasir';
-12: 
+12:
 13:   const myTrx = (transactions || []).filter((t) => {
 14:     const trxDate = t?.tanggal_transaksi || t?.date || t?.created_at || '';
 15:     const normalizedDate = typeof trxDate === 'string' ? trxDate.split('T')[0] : '';
 16:     const kasirName = t?.kasir || '';
 17:     const currentUserName = user?.nama || user?.name || '';
-18: 
+18:
 19:     return normalizedDate === today && kasirName === currentUserName;
 20:   });
-21: 
+21:
 22:   return (
 23:     <div style={styles.container}>
 24:       <div style={styles.header}>
@@ -453,7 +471,7 @@ Let me read all the page files to understand the full structure.
 34:         </div>
 35:         <div style={styles.avatar}>👩‍🍳</div>
 36:       </div>
-37: 
+37:
 38:       <div style={styles.content}>
 39:         <div style={styles.statsCard}>
 40:           <div style={styles.statLabel}>Total Transaksi Saya Hari Ini</div>
@@ -461,7 +479,7 @@ Let me read all the page files to understand the full structure.
 42:             {myTrx.length} <span style={styles.statSub}>pesanan</span>
 43:           </div>
 44:         </div>
-45: 
+45:
 46:         <div style={styles.quickGrid}>
 47:           <button
 48:             style={{ ...styles.quickBtn, background: '#1D9E75' }}
@@ -472,7 +490,7 @@ Let me read all the page files to understand the full structure.
 53:             </div>
 54:             <div style={styles.quickLabel}>Buat Pesanan Baru</div>
 55:           </button>
-56: 
+56:
 57:           <button
 58:             style={{ ...styles.quickBtn, background: '#E07B3A' }}
 59:             onClick={() => navigate('/riwayat')}
@@ -487,7 +505,7 @@ Let me read all the page files to understand the full structure.
 68:     </div>
 69:   );
 70: }
-71: 
+71:
 72: const styles = {
 73:   container: { height: '100%', display: 'flex', flexDirection: 'column', position: 'relative' },
 74:   header: {
@@ -553,6 +571,7 @@ Let me read all the page files to understand the full structure.
 **Tool: read**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\kasir\\PesananKasir.jsx"
@@ -560,6 +579,7 @@ Let me read all the page files to understand the full structure.
 ```
 
 **Output:**
+
 ```
 <path>E:\UDIN\Kuliah\Mata Kuliah\Rekayasa Perangkat Lunak\Tugas 6\wdms-app\wdms-frontend\src\pages\kasir\PesananKasir.jsx</path>
 <type>file</type>
@@ -574,18 +594,18 @@ Let me read all the page files to understand the full structure.
 8:   IconCreditCard,
 9:   IconArrowRight,
 10: } from '@tabler/icons-react';
-11: 
+11:
 12: export default function PesananKasir() {
 13:   const { menus, cart, addToCart } = useAppContext();
 14:   const navigate = useNavigate();
 15:   const [filter, setFilter] = useState('Semua');
-16: 
+16:
 17:   const filteredMenus = filter === 'Semua' ? menus : menus.filter((m) => m.kategori === filter);
-18: 
+18:
 19:   const cartTotal = cart.reduce((sum, item) => sum + item.harga * item.qty, 0);
-20: 
+20:
 21:   const formatIDR = (num) => `Rp ${num.toLocaleString('id-ID')}`;
-22: 
+22:
 23:   const getEmoji = (name) => {
 24:     if (name.includes('Ayam')) return '🍗';
 25:     if (name.includes('Tempe') || name.includes('Tahu')) return '🍱';
@@ -595,7 +615,7 @@ Let me read all the page files to understand the full structure.
 29:     if (name.includes('Teh') || name.includes('Es')) return '🍹';
 30:     return '🍲';
 31:   };
-32: 
+32:
 33:   return (
 34:     <div style={styles.container}>
 35:       <div style={styles.topBar}>
@@ -604,7 +624,7 @@ Let me read all the page files to understand the full structure.
 38:         </div>
 39:         <div style={styles.topTitle}>Pesanan Baru</div>
 40:       </div>
-41: 
+41:
 42:       <div style={styles.body}>
 43:         <div style={styles.filterRow}>
 44:           {['Semua', 'Lauk', 'Sayur', 'Minuman'].map((f) => (
@@ -617,7 +637,7 @@ Let me read all the page files to understand the full structure.
 51:             </button>
 52:           ))}
 53:         </div>
-54: 
+54:
 55:         <div style={styles.menuGrid}>
 56:           {filteredMenus.map((menu) => (
 57:             <div
@@ -635,7 +655,7 @@ Let me read all the page files to understand the full structure.
 69:               <div style={menu.status === 'Habis' ? styles.menuNameHabis : styles.menuName}>
 70:                 {menu.nama}
 71:               </div>
-72: 
+72:
 73:               {menu.status === 'Habis' ? (
 74:                 <div style={styles.habisBadge}>HABIS</div>
 75:               ) : (
@@ -644,7 +664,7 @@ Let me read all the page files to understand the full structure.
 78:             </div>
 79:           ))}
 80:         </div>
-81: 
+81:
 82:         {cart.length > 0 && (
 83:           <div style={styles.orderCard}>
 84:             <div style={styles.orderTitle}>
@@ -665,7 +685,7 @@ Let me read all the page files to understand the full structure.
 99:             </div>
 100:           </div>
 101:         )}
-102: 
+102:
 103:         <button
 104:           style={{ ...styles.payBtn, opacity: cart.length > 0 ? 1 : 0.5 }}
 105:           disabled={cart.length === 0}
@@ -677,7 +697,7 @@ Let me read all the page files to understand the full structure.
 111:     </div>
 112:   );
 113: }
-114: 
+114:
 115: const styles = {
 116:   container: { height: '100%', display: 'flex', flexDirection: 'column', position: 'relative' },
 117:   topBar: {
@@ -854,6 +874,7 @@ Let me read all the page files to understand the full structure.
 **Tool: read**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\kasir\\ProsesPembayaran.jsx"
@@ -861,6 +882,7 @@ Let me read all the page files to understand the full structure.
 ```
 
 **Output:**
+
 ```
 <path>E:\UDIN\Kuliah\Mata Kuliah\Rekayasa Perangkat Lunak\Tugas 6\wdms-app\wdms-frontend\src\pages\kasir\ProsesPembayaran.jsx</path>
 <type>file</type>
@@ -869,25 +891,25 @@ Let me read all the page files to understand the full structure.
 2: import { useNavigate } from 'react-router-dom';
 3: import { useAppContext } from '../../context/AppContext';
 4: import { IconArrowLeft, IconReceipt, IconCash, IconQrcode, IconCheck } from '@tabler/icons-react';
-5: 
+5:
 6: export default function ProsesPembayaran() {
 7:   const { cart, addTransaction } = useAppContext();
 8:   const navigate = useNavigate();
-9: 
+9:
 10:   const total = cart.reduce((sum, item) => sum + item.harga * item.qty, 0);
-11: 
+11:
 12:   const [paid, setPaid] = useState(total);
 13:   const [method, setMethod] = useState('Tunai');
-14: 
+14:
 15:   const formatIDR = (num) => `Rp ${num.toLocaleString('id-ID')}`;
 16:   const kembalian = Math.max(0, paid - total);
-17: 
+17:
 18:   // If cart is empty (e.g. page refreshed), redirect
 19:   if (cart.length === 0) {
 20:     navigate('/pesan');
 21:     return null;
 22:   }
-23: 
+23:
 24:   const handleConfirm = async () => {
 25:     if (paid < total) {
 26:       alert('Jumlah bayar kurang dari total pesanan!');
@@ -921,7 +943,7 @@ Let me read all the page files to understand the full structure.
 54:       alert(result.message || 'Gagal menyimpan transaksi!');
 55:     }
 56:   };
-57: 
+57:
 58:   return (
 59:     <div style={styles.container}>
 60:       <div style={styles.topBar}>
@@ -929,7 +951,7 @@ Let me read all the page files to understand the full structure.
 62:           <IconArrowLeft size={16} /> Proses Pembayaran
 63:         </div>
 64:       </div>
-65: 
+65:
 66:       <div style={styles.body}>
 67:         <div style={styles.summaryCard}>
 68:           <div style={styles.summaryTitle}>
@@ -949,13 +971,13 @@ Let me read all the page files to understand the full structure.
 82:             <span style={styles.sTotalVal}>{formatIDR(total)}</span>
 83:           </div>
 84:         </div>
-85: 
+85:
 86:         <div style={styles.sectionLabel}>Jumlah Bayar</div>
 87:         <div style={styles.amountCard}>
 88:           <div style={styles.amountHint}>Uang diterima</div>
 89:           <div style={styles.amountVal}>{formatIDR(paid)}</div>
 90:         </div>
-91: 
+91:
 92:         <div style={styles.quickLabel}>Nominal Cepat:</div>
 93:         <div style={styles.quickRow}>
 94:           {[total, 20000, 50000].map((val) => (
@@ -968,12 +990,12 @@ Let me read all the page files to understand the full structure.
 101:             </div>
 102:           ))}
 103:         </div>
-104: 
+104:
 105:         <div style={styles.kembalianCard}>
 106:           <div style={styles.kembalianHint}>Kembalian</div>
 107:           <div style={styles.kembalianVal}>{formatIDR(kembalian)}</div>
 108:         </div>
-109: 
+109:
 110:         <div style={styles.metodeLabel}>Metode Bayar:</div>
 111:         <div style={styles.metodeRow}>
 112:           <button
@@ -989,7 +1011,7 @@ Let me read all the page files to understand the full structure.
 122:             <IconQrcode size={18} /> QRIS
 123:           </button>
 124:         </div>
-125: 
+125:
 126:         <button style={styles.confirmBtn} onClick={handleConfirm}>
 127:           <IconCheck size={20} /> Konfirmasi Bayar
 128:         </button>
@@ -997,7 +1019,7 @@ Let me read all the page files to understand the full structure.
 130:     </div>
 131:   );
 132: }
-133: 
+133:
 134: const styles = {
 135:   container: { height: '100%', display: 'flex', flexDirection: 'column', position: 'relative' },
 136:   topBar: {
@@ -1156,6 +1178,7 @@ Let me read all the page files to understand the full structure.
 **Tool: read**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\kasir\\RiwayatTransaksi.jsx"
@@ -1163,6 +1186,7 @@ Let me read all the page files to understand the full structure.
 ```
 
 **Output:**
+
 ```
 <path>E:\UDIN\Kuliah\Mata Kuliah\Rekayasa Perangkat Lunak\Tugas 6\wdms-app\wdms-frontend\src\pages\kasir\RiwayatTransaksi.jsx</path>
 <type>file</type>
@@ -1171,14 +1195,14 @@ Let me read all the page files to understand the full structure.
 2: import { useNavigate } from 'react-router-dom';
 3: import { useAppContext } from '../../context/AppContext';
 4: import { IconSearch, IconFilter, IconReceipt } from '@tabler/icons-react';
-5: 
+5:
 6: export default function RiwayatTransaksi() {
 7:   const { transactions } = useAppContext();
 8:   const navigate = useNavigate();
 9:   const [search, setSearch] = useState('');
-10: 
+10:
 11:   const formatIDR = (num) => `Rp ${num.toLocaleString('id-ID')}`;
-12: 
+12:
 13:   const openStruk = (trx) => {
 14:     const normalized = {
 15:       ...trx,
@@ -1197,14 +1221,14 @@ Let me read all the page files to understand the full structure.
 28:       kembalian: Number(trx.kembalian || 0),
 29:       metode: trx.metode_bayar || trx.metode || 'Tunai',
 30:     };
-31: 
+31:
 32:     try {
 33:       sessionStorage.setItem('wdms_last_trx', JSON.stringify(normalized));
 34:     } catch {}
-35: 
+35:
 36:     navigate('/struk', { state: { trx: normalized } });
 37:   };
-38: 
+38:
 39:   const normalizedTransactions = (transactions || []).map((trx) => ({
 40:     ...trx,
 41:     id: trx.id_transaksi || trx.id,
@@ -1217,13 +1241,13 @@ Let me read all the page files to understand the full structure.
 48:     kembalian: trx.kembalian || 0,
 49:     metode: trx.metode_bayar || trx.metode || 'Tunai',
 50:   }));
-51: 
+51:
 52:   const filtered = normalizedTransactions.filter((t) => {
 53:     const idText = String(t.id_transaksi ?? t.id ?? '');
 54:     const kasirText = String(t.kasir ?? '');
 55:     return idText.includes(search) || kasirText.toLowerCase().includes(search.toLowerCase());
 56:   });
-57: 
+57:
 58:   return (
 59:     <div style={styles.container}>
 60:       <div style={styles.header}>
@@ -1243,12 +1267,12 @@ Let me read all the page files to understand the full structure.
 74:           </button>
 75:         </div>
 76:       </div>
-77: 
+77:
 78:       <div style={styles.content}>
 79:         {filtered.map((trx) => {
 80:           const d = trx.date ? new Date(trx.date) : new Date();
 81:           const timeStr = `${d.getHours().toString().padStart(2, '0')}:${d.getMinutes().toString().padStart(2, '0')}`;
-82: 
+82:
 83:           return (
 84:             <div
 85:               key={trx.id_transaksi || trx.id}
@@ -1279,7 +1303,7 @@ Let me read all the page files to understand the full structure.
 110:     </div>
 111:   );
 112: }
-113: 
+113:
 114: const styles = {
 115:   container: { height: '100%', display: 'flex', flexDirection: 'column', position: 'relative' },
 116:   header: { background: '#1D9E75', padding: '24px 20px 40px', borderRadius: '0 0 24px 24px' },
@@ -1372,6 +1396,7 @@ Let me read all the page files to understand the full structure.
 **Tool: read**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\kasir\\StrukPembayaran.jsx"
@@ -1379,6 +1404,7 @@ Let me read all the page files to understand the full structure.
 ```
 
 **Output:**
+
 ```
 <path>E:\UDIN\Kuliah\Mata Kuliah\Rekayasa Perangkat Lunak\Tugas 6\wdms-app\wdms-frontend\src\pages\kasir\StrukPembayaran.jsx</path>
 <type>file</type>
@@ -1386,7 +1412,7 @@ Let me read all the page files to understand the full structure.
 1: import React, { useEffect, useState } from 'react';
 2: import { useNavigate, useLocation } from 'react-router-dom';
 3: import { IconPrinter, IconShare, IconPlus } from '@tabler/icons-react';
-4: 
+4:
 5: export default function StrukPembayaran() {
 6:   const navigate = useNavigate();
 7:   const location = useLocation();
@@ -1398,10 +1424,10 @@ Let me read all the page files to understand the full structure.
 13:       return null;
 14:     }
 15:   });
-16: 
+16:
 17:   const normalizeTrx = (raw) => {
 18:     if (!raw) return null;
-19: 
+19:
 20:     return {
 21:       ...raw,
 22:       id: raw.id_transaksi || raw.id || raw.id_pesanan,
@@ -1420,7 +1446,7 @@ Let me read all the page files to understand the full structure.
 35:       metode: raw.metode_bayar || raw.metode || 'Tunai',
 36:     };
 37:   };
-38: 
+38:
 39:   useEffect(() => {
 40:     const incoming = location.state?.trx || location.state?.transaction || null;
 41:     if (incoming) {
@@ -1431,10 +1457,10 @@ Let me read all the page files to understand the full structure.
 46:       } catch {}
 47:     }
 48:   }, [location.state]);
-49: 
+49:
 50:   const formatIDR = (num) => `Rp ${num.toLocaleString('id-ID')}`;
 51:   const currentTrx = normalizeTrx(trx);
-52: 
+52:
 53:   if (!currentTrx) {
 54:     return (
 55:       <div style={styles.container}>
@@ -1445,17 +1471,17 @@ Let me read all the page files to understand the full structure.
 60:       </div>
 61:     );
 62:   }
-63: 
+63:
 64:   const d = trx.date ? new Date(trx.date) : new Date();
 65:   const dateStr = `${d.getDate().toString().padStart(2, '0')}/${(d.getMonth() + 1).toString().padStart(2, '0')}/${d.getFullYear()} ${d.getHours().toString().padStart(2, '0')}:${d.getMinutes().toString().padStart(2, '0')}`;
 66:   const trxId = String(trx.id_transaksi || trx.id || '').slice(-4); // Last 4 digits
-67: 
+67:
 68:   return (
 69:     <div style={styles.container}>
 70:       <div style={styles.topBar}>
 71:         <div style={styles.topTitle}>Struk Pembayaran</div>
 72:       </div>
-73: 
+73:
 74:       <div style={styles.body}>
 75:         <div style={styles.receipt}>
 76:           <div style={styles.restoName}>WARTEG PAK BUDI</div>
@@ -1464,9 +1490,9 @@ Let me read all the page files to understand the full structure.
 79:             <br />
 80:             Telp: 0812-xxxx-xxxx
 81:           </div>
-82: 
+82:
 83:           <div style={styles.rDivider} />
-84: 
+84:
 85:           <div style={styles.metaRow}>
 86:             <span>No: #{trxId}</span>
 87:             <span>{dateStr}</span>
@@ -1474,9 +1500,9 @@ Let me read all the page files to understand the full structure.
 89:           <div style={styles.metaRow}>
 90:             <span>Kasir: {trx.kasir}</span>
 91:           </div>
-92: 
+92:
 93:           <div style={styles.rDivider} />
-94: 
+94:
 95:           <div style={{ marginTop: '2px' }}>
 96:             {(trx.items || []).map((item, idx) => (
 97:               <div key={idx} style={styles.itemRow}>
@@ -1490,9 +1516,9 @@ Let me read all the page files to understand the full structure.
 105:               </div>
 106:             ))}
 107:           </div>
-108: 
+108:
 109:           <div style={styles.rDivider} />
-110: 
+110:
 111:           <div style={styles.totalRow}>
 112:             <span>TOTAL</span>
 113:             <span style={{ color: '#1D9E75' }}>{formatIDR(trx.total)}</span>
@@ -1505,9 +1531,9 @@ Let me read all the page files to understand the full structure.
 120:             <span>Kembalian</span>
 121:             <span>{formatIDR(trx.kembalian)}</span>
 122:           </div>
-123: 
+123:
 124:           <div style={styles.rDivider} />
-125: 
+125:
 126:           <div style={styles.thankyou}>
 127:             <p style={styles.thankyouText}>
 128:               Terima kasih atas kunjungan Anda!
@@ -1516,7 +1542,7 @@ Let me read all the page files to understand the full structure.
 131:             </p>
 132:           </div>
 133:         </div>
-134: 
+134:
 135:         <div style={styles.actionRow}>
 136:           <button style={styles.btnCetak} onClick={() => window.print()}>
 137:             <IconPrinter size={16} /> Cetak
@@ -1525,7 +1551,7 @@ Let me read all the page files to understand the full structure.
 140:             <IconShare size={16} /> Share
 141:           </button>
 142:         </div>
-143: 
+143:
 144:         <button style={styles.newTrxBtn} onClick={() => navigate('/pesan')}>
 145:           <IconPlus size={18} /> Transaksi Baru
 146:         </button>
@@ -1533,7 +1559,7 @@ Let me read all the page files to understand the full structure.
 148:     </div>
 149:   );
 150: }
-151: 
+151:
 152: const styles = {
 153:   container: { height: '100%', display: 'flex', flexDirection: 'column', position: 'relative' },
 154:   topBar: {
@@ -1679,13 +1705,13 @@ Let me read all the page files to understand the full structure.
 294:     gap: '8px',
 295:   },
 296: };
-297: 
+297:
 298: if (typeof window !== 'undefined') {
 299:   window.addEventListener('beforeprint', () => {
 300:     document.body.style.background = '#fff';
 301:     document.body.style.padding = '0';
 302:   });
-303: 
+303:
 304:   window.addEventListener('afterprint', () => {
 305:     document.body.style.background = '';
 306:     document.body.style.padding = '';
@@ -1699,6 +1725,7 @@ Let me read all the page files to understand the full structure.
 **Tool: read**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\pemilik\\DashboardPemilik.jsx"
@@ -1706,6 +1733,7 @@ Let me read all the page files to understand the full structure.
 ```
 
 **Output:**
+
 ```
 <path>E:\UDIN\Kuliah\Mata Kuliah\Rekayasa Perangkat Lunak\Tugas 6\wdms-app\wdms-frontend\src\pages\pemilik\DashboardPemilik.jsx</path>
 <type>file</type>
@@ -1719,13 +1747,13 @@ Let me read all the page files to understand the full structure.
 7:   IconPackage,
 8:   IconCashBanknote,
 9: } from '@tabler/icons-react';
-10: 
+10:
 11: export default function DashboardPemilik() {
 12:   const { user, fetchLaporan } = useAppContext();
 13:   const navigate = useNavigate();
 14:   const [stats, setStats] = useState({ total_transaksi: 0, total_pendapatan: 0 });
 15:   const [menuTerlaris, setMenuTerlaris] = useState([]);
-16: 
+16:
 17:   useEffect(() => {
 18:     fetchLaporan('hari').then((data) => {
 19:       if (data) {
@@ -1734,15 +1762,15 @@ Let me read all the page files to understand the full structure.
 22:       }
 23:     });
 24:   }, [fetchLaporan]);
-25: 
+25:
 26:   const formatIDR = (num) => {
 27:     const n = parseFloat(num) || 0;
 28:     return n >= 1000 ? (n / 1000).toFixed(0) + 'K' : `Rp ${n}`;
 29:   };
-30: 
+30:
 31:   const maxTerjual = menuTerlaris.length > 0 ? menuTerlaris[0].total_terjual : 1;
 32:   const barColors = ['#C94040', '#E07B3A', '#D4B96A', '#3B7A57', '#5F5E5A'];
-33: 
+33:
 34:   return (
 35:     <div style={styles.container}>
 36:       <div style={styles.header}>
@@ -1758,7 +1786,7 @@ Let me read all the page files to understand the full structure.
 46:         </div>
 47:         <div style={styles.avatar}>👨‍🍳</div>
 48:       </div>
-49: 
+49:
 50:       <div style={styles.content}>
 51:         <div style={styles.adviceCard}>
 52:           <div style={styles.adviceIcon}>💡</div>
@@ -1769,7 +1797,7 @@ Let me read all the page files to understand the full structure.
 57:             </div>
 58:           </div>
 59:         </div>
-60: 
+60:
 61:         <div style={styles.statsRow}>
 62:           <div style={{ ...styles.statCard, ...styles.incomeCard }}>
 63:             <div style={{ ...styles.statLabel, color: '#3B6D11' }}>PENDAPATAN</div>
@@ -1784,7 +1812,7 @@ Let me read all the page files to understand the full structure.
 72:             <div style={{ ...styles.statSub, color: '#993C1D' }}>Hari ini</div>
 73:           </div>
 74:         </div>
-75: 
+75:
 76:         <div style={styles.sectionTitle}>Menu Terlaris Hari Ini</div>
 77:         <div style={styles.menuPopular}>
 78:           {menuTerlaris.length === 0 ? (
@@ -1809,7 +1837,7 @@ Let me read all the page files to understand the full structure.
 97:             ))
 98:           )}
 99:         </div>
-100: 
+100:
 101:         <div style={styles.sectionTitle}>Menu Cepat</div>
 102:         <div style={styles.quickGrid}>
 103:           <QuickBtn
@@ -1841,7 +1869,7 @@ Let me read all the page files to understand the full structure.
 129:     </div>
 130:   );
 131: }
-132: 
+132:
 133: function QuickBtn({ icon, label, bg, onClick }) {
 134:   return (
 135:     <button style={{ ...styles.quickBtn, background: bg }} onClick={onClick}>
@@ -1850,7 +1878,7 @@ Let me read all the page files to understand the full structure.
 138:     </button>
 139:   );
 140: }
-141: 
+141:
 142: const styles = {
 143:   container: { height: '100%', display: 'flex', flexDirection: 'column', position: 'relative' },
 144:   header: {
@@ -1955,6 +1983,7 @@ Let me read all the page files to understand the full structure.
 **Tool: read**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\pemilik\\KelolaMenu.jsx"
@@ -1962,6 +1991,7 @@ Let me read all the page files to understand the full structure.
 ```
 
 **Output:**
+
 ```
 <path>E:\UDIN\Kuliah\Mata Kuliah\Rekayasa Perangkat Lunak\Tugas 6\wdms-app\wdms-frontend\src\pages\pemilik\KelolaMenu.jsx</path>
 <type>file</type>
@@ -1979,25 +2009,25 @@ Let me read all the page files to understand the full structure.
 11:   IconPencil,
 12:   IconTrash,
 13: } from '@tabler/icons-react';
-14: 
+14:
 15: const KATEGORI_OPTIONS = ['Lauk', 'Sayuran', 'Minuman'];
 16: const STATUS_OPTIONS = ['Tersedia', 'Habis'];
-17: 
+17:
 18: export default function KelolaMenu() {
 19:   const { menus, addMenu, updateMenuItem, deleteMenuItem } = useAppContext();
 20:   const [search, setSearch] = useState('');
-21: 
+21:
 22:   // Modal & Form States
 23:   const [showFormModal, setShowFormModal] = useState(false);
 24:   const [editingMenu, setEditingMenu] = useState(null); // null = mode tambah, object = mode edit
 25:   const [isSubmitting, setIsSubmitting] = useState(false);
 26:   const [errors, setErrors] = useState({});
-27: 
+27:
 28:   // Dropdown States
 29:   const [showKategoriDropdown, setShowKategoriDropdown] = useState(false);
 30:   const [showStatusDropdown, setShowStatusDropdown] = useState(false);
 31:   const [activeActionId, setActiveActionId] = useState(null); // ID menu yang action-nya terbuka
-32: 
+32:
 33:   const [formData, setFormData] = useState({
 34:     nama_menu: '',
 35:     kategori: 'Lauk',
@@ -2005,34 +2035,34 @@ Let me read all the page files to understand the full structure.
 37:     stok: '',
 38:     status: 'Tersedia',
 39:   });
-40: 
+40:
 41:   const filteredMenus = menus.filter((m) => m.nama.toLowerCase().includes(search.toLowerCase()));
-42: 
+42:
 43:   const formatIDR = (num) => `Rp ${num.toLocaleString('id-ID')}`;
-44: 
+44:
 45:   // ── Handlers ──────────────────────────────────────────
 46:   const handleInputChange = (field, value) => {
 47:     setFormData((prev) => ({ ...prev, [field]: value }));
 48:     if (errors[field]) setErrors((prev) => ({ ...prev, [field]: null }));
 49:   };
-50: 
+50:
 51:   const handleHargaChange = (value) => {
 52:     const numeric = value.replace(/\D/g, '');
 53:     setFormData((prev) => ({ ...prev, harga_jual: numeric }));
 54:     if (errors.harga_jual) setErrors((prev) => ({ ...prev, harga_jual: null }));
 55:   };
-56: 
+56:
 57:   const handleStokChange = (value) => {
 58:     const numeric = value.replace(/\D/g, '');
 59:     setFormData((prev) => ({ ...prev, stok: numeric }));
 60:     if (errors.stok) setErrors((prev) => ({ ...prev, stok: null }));
 61:   };
-62: 
+62:
 63:   const formatNumberInput = (val) => {
 64:     if (!val) return '';
 65:     return parseInt(val, 10).toLocaleString('id-ID');
 66:   };
-67: 
+67:
 68:   const validate = () => {
 69:     const newErrors = {};
 70:     if (!formData.nama_menu.trim()) newErrors.nama_menu = 'Nama menu wajib diisi';
@@ -2042,7 +2072,7 @@ Let me read all the page files to understand the full structure.
 74:     setErrors(newErrors);
 75:     return Object.keys(newErrors).length === 0;
 76:   };
-77: 
+77:
 78:   // ── CRUD Handlers ─────────────────────────────────────
 79:   const openAddModal = () => {
 80:     setEditingMenu(null);
@@ -2057,7 +2087,7 @@ Let me read all the page files to understand the full structure.
 89:     setShowFormModal(true);
 90:     setActiveActionId(null);
 91:   };
-92: 
+92:
 93:   const openEditModal = (menu) => {
 94:     setEditingMenu(menu);
 95:     setFormData({
@@ -2071,13 +2101,13 @@ Let me read all the page files to understand the full structure.
 103:     setShowFormModal(true);
 104:     setActiveActionId(null);
 105:   };
-106: 
+106:
 107:   const handleSubmit = async (e) => {
 108:     e.preventDefault();
 109:     if (!validate()) return;
-110: 
+110:
 111:     setIsSubmitting(true);
-112: 
+112:
 113:     const payload = {
 114:       nama_menu: formData.nama_menu.trim(),
 115:       kategori: formData.kategori,
@@ -2085,23 +2115,23 @@ Let me read all the page files to understand the full structure.
 117:       stok: parseInt(formData.stok, 10),
 118:       status: formData.status,
 119:     };
-120: 
+120:
 121:     let result;
 122:     if (editingMenu) {
 123:       result = await updateMenuItem(editingMenu.id_menu || editingMenu.id, payload);
 124:     } else {
 125:       result = await addMenu(payload);
 126:     }
-127: 
+127:
 128:     setIsSubmitting(false);
-129: 
+129:
 130:     if (result.success) {
 131:       resetAndCloseModal();
 132:     } else {
 133:       alert(result.message || 'Gagal menyimpan menu');
 134:     }
 135:   };
-136: 
+136:
 137:   const handleDelete = async (menu) => {
 138:     if (window.confirm(`Hapus menu "${menu.nama}"?`)) {
 139:       const result = await deleteMenuItem(menu.id_menu || menu.id);
@@ -2111,7 +2141,7 @@ Let me read all the page files to understand the full structure.
 143:     }
 144:     setActiveActionId(null);
 145:   };
-146: 
+146:
 147:   const resetAndCloseModal = () => {
 148:     setShowFormModal(false);
 149:     setEditingMenu(null);
@@ -2126,7 +2156,7 @@ Let me read all the page files to understand the full structure.
 158:     setShowKategoriDropdown(false);
 159:     setShowStatusDropdown(false);
 160:   };
-161: 
+161:
 162:   // ── Render ────────────────────────────────────────────
 163:   return (
 164:     <div style={styles.container}>
@@ -2143,7 +2173,7 @@ Let me read all the page files to understand the full structure.
 175:           />
 176:         </div>
 177:       </div>
-178: 
+178:
 179:       {/* ── Menu List ── */}
 180:       <div style={styles.content}>
 181:         {filteredMenus.length === 0 && (
@@ -2166,7 +2196,7 @@ Let me read all the page files to understand the full structure.
 198:               <div style={menu.status === 'Habis' ? styles.badgeHabis : styles.badgeTersedia}>
 199:                 {menu.status}
 200:               </div>
-201: 
+201:
 202:               {/* Action Button (3 dots) */}
 203:               <div style={styles.actionContainer}>
 204:                 <IconDotsVertical
@@ -2175,7 +2205,7 @@ Let me read all the page files to understand the full structure.
 207:                   style={{ cursor: 'pointer' }}
 208:                   onClick={() => setActiveActionId(activeActionId === menu.id ? null : menu.id)}
 209:                 />
-210: 
+210:
 211:                 {/* Action Dropdown */}
 212:                 {activeActionId === menu.id && (
 213:                   <>
@@ -2198,12 +2228,12 @@ Let me read all the page files to understand the full structure.
 230:           </div>
 231:         ))}
 232:       </div>
-233: 
+233:
 234:       {/* ── FAB ── */}
 235:       <button style={styles.fab} onClick={openAddModal}>
 236:         <IconPlus size={24} />
 237:       </button>
-238: 
+238:
 239:       {/* ── Modal Tambah/Edit Menu ── */}
 240:       {showFormModal && (
 241:         <div style={styles.modalOverlay} onClick={resetAndCloseModal}>
@@ -2214,7 +2244,7 @@ Let me read all the page files to understand the full structure.
 246:                 <IconX size={20} />
 247:               </button>
 248:             </div>
-249: 
+249:
 250:             <form onSubmit={handleSubmit} style={styles.modalBody}>
 251:               {/* Nama Menu */}
 252:               <div style={styles.formGroup}>
@@ -2231,7 +2261,7 @@ Let me read all the page files to understand the full structure.
 263:                 />
 264:                 {errors.nama_menu && <div style={styles.errorText}>{errors.nama_menu}</div>}
 265:               </div>
-266: 
+266:
 267:               {/* Kategori */}
 268:               <div style={styles.formGroup}>
 269:                 <label style={styles.label}>
@@ -2272,7 +2302,7 @@ Let me read all the page files to understand the full structure.
 304:                   )}
 305:                 </div>
 306:               </div>
-307: 
+307:
 308:               {/* Harga Jual */}
 309:               <div style={styles.formGroup}>
 310:                 <label style={styles.label}>
@@ -2294,7 +2324,7 @@ Let me read all the page files to understand the full structure.
 326:                 </div>
 327:                 {errors.harga_jual && <div style={styles.errorText}>{errors.harga_jual}</div>}
 328:               </div>
-329: 
+329:
 330:               {/* Stok */}
 331:               <div style={styles.formGroup}>
 332:                 <label style={styles.label}>
@@ -2309,7 +2339,7 @@ Let me read all the page files to understand the full structure.
 341:                 />
 342:                 {errors.stok && <div style={styles.errorText}>{errors.stok}</div>}
 343:               </div>
-344: 
+344:
 345:               {/* Status */}
 346:               <div style={styles.formGroup}>
 347:                 <label style={styles.label}>Status</label>
@@ -2370,7 +2400,7 @@ Let me read all the page files to understand the full structure.
 402:                   )}
 403:                 </div>
 404:               </div>
-405: 
+405:
 406:               {/* Buttons */}
 407:               <div style={styles.btnRow}>
 408:                 <button
@@ -2399,7 +2429,7 @@ Let me read all the page files to understand the full structure.
 431:     </div>
 432:   );
 433: }
-434: 
+434:
 435: // ── Styles ──────────────────────────────────────────────
 436: const styles = {
 437:   container: { height: '100%', display: 'flex', flexDirection: 'column', position: 'relative' },
@@ -2465,7 +2495,7 @@ Let me read all the page files to understand the full structure.
 497:   menuName: { fontSize: '14px', fontWeight: '800', color: '#2C2C2A' },
 498:   menuCategory: { fontSize: '11px', color: '#888780', fontWeight: '600', marginBottom: '4px' },
 499:   menuPrice: { fontSize: '12px', fontWeight: '700', color: '#C94040' },
-500: 
+500:
 501:   // Action Wrapper & Badges
 502:   menuActionWrapper: {
 503:     display: 'flex',
@@ -2491,7 +2521,7 @@ Let me read all the page files to understand the full structure.
 523:     padding: '2px 8px',
 524:     borderRadius: '4px',
 525:   },
-526: 
+526:
 527:   // Action Dropdown (3-dots)
 528:   actionContainer: { position: 'relative' },
 529:   actionOverlay: { position: 'fixed', inset: 0, zIndex: 9 }, // Untuk menutup dropdown saat klik luar
@@ -2522,7 +2552,7 @@ Let me read all the page files to understand the full structure.
 554:     textAlign: 'left',
 555:     fontWeight: '600',
 556:   },
-557: 
+557:
 558:   fab: {
 559:     position: 'absolute',
 560:     bottom: '80px',
@@ -2539,7 +2569,7 @@ Let me read all the page files to understand the full structure.
 571:     cursor: 'pointer',
 572:     boxShadow: '0 4px 12px rgba(67, 97, 238, 0.4)',
 573:   },
-574: 
+574:
 575:   // ── Modal ──
 576:   modalOverlay: {
 577:     position: 'fixed',
@@ -2590,7 +2620,7 @@ Let me read all the page files to understand the full structure.
 622:     flexDirection: 'column',
 623:     gap: '16px',
 624:   },
-625: 
+625:
 626:   // ── Form ──
 627:   formGroup: { display: 'flex', flexDirection: 'column', gap: '6px' },
 628:   label: { fontSize: '13px', fontWeight: '700', color: '#2C2C2A' },
@@ -2607,7 +2637,7 @@ Let me read all the page files to understand the full structure.
 639:   },
 640:   inputError: { borderColor: '#C94040' },
 641:   errorText: { fontSize: '11px', color: '#C94040', fontWeight: '600' },
-642: 
+642:
 643:   // ── Select / Dropdown ──
 644:   selectWrapper: { position: 'relative' },
 645:   selectBtn: {
@@ -2652,7 +2682,7 @@ Let me read all the page files to understand the full structure.
 684:     textAlign: 'left',
 685:   },
 686:   dropdownItemActive: { background: '#EEF1FF', fontWeight: '700', color: '#4361EE' },
-687: 
+687:
 688:   // ── Harga ──
 689:   hargaWrapper: {
 690:     display: 'flex',
@@ -2670,7 +2700,7 @@ Let me read all the page files to understand the full structure.
 702:     userSelect: 'none',
 703:   },
 704:   hargaInput: { border: 'none', borderRadius: 0 },
-705: 
+705:
 706:   // ── Buttons ──
 707:   btnRow: { display: 'flex', gap: '10px', paddingTop: '4px', paddingBottom: '10px' },
 708:   cancelBtn: {
@@ -2711,6 +2741,7 @@ Let me read all the page files to understand the full structure.
 **Tool: read**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\pemilik\\LaporanPenjualan.jsx"
@@ -2718,6 +2749,7 @@ Let me read all the page files to understand the full structure.
 ```
 
 **Output:**
+
 ```
 <path>E:\UDIN\Kuliah\Mata Kuliah\Rekayasa Perangkat Lunak\Tugas 6\wdms-app\wdms-frontend\src\pages\pemilik\LaporanPenjualan.jsx</path>
 <type>file</type>
@@ -2725,20 +2757,20 @@ Let me read all the page files to understand the full structure.
 1: import React, { useEffect, useState } from 'react';
 2: import { useAppContext } from '../../context/AppContext';
 3: import { IconDownload, IconPrinter, IconX } from '@tabler/icons-react';
-4: 
+4:
 5: const PERIODES = [
 6:   { label: 'Hari Ini', value: 'hari' },
 7:   { label: '7 Hari', value: 'minggu' },
 8:   { label: 'Bulan Ini', value: 'bulan' },
 9: ];
-10: 
+10:
 11: export default function LaporanPenjualan() {
 12:   const { fetchLaporan } = useAppContext();
 13:   const [periode, setPeriode] = useState('hari');
 14:   const [stats, setStats] = useState({ total_transaksi: 0, total_pendapatan: 0 });
 15:   const [menuTerlaris, setMenuTerlaris] = useState([]);
 16:   const [showPreview, setShowPreview] = useState(false);
-17: 
+17:
 18:   useEffect(() => {
 19:     fetchLaporan(periode).then((data) => {
 20:       if (data) {
@@ -2747,20 +2779,20 @@ Let me read all the page files to understand the full structure.
 23:       }
 24:     });
 25:   }, [fetchLaporan, periode]);
-26: 
+26:
 27:   const formatIDR = (num) => `Rp ${parseFloat(num || 0).toLocaleString('id-ID')}`;
 28:   const maxTerjual = menuTerlaris.length > 0 ? menuTerlaris[0].total_terjual : 1;
-29: 
+29:
 30:   const handleExport = () => {
 31:     setShowPreview(true);
 32:   };
-33: 
+33:
 34:   const handlePrint = () => {
 35:     window.print();
 36:   };
-37: 
+37:
 38:   const periodeLabel = PERIODES.find((p) => p.value === periode)?.label || 'Hari Ini';
-39: 
+39:
 40:   return (
 41:     <div style={styles.container}>
 42:       <style>{`
@@ -2772,7 +2804,7 @@ Let me read all the page files to understand the full structure.
 48:           .print-report-preview .previewActions { display: none !important; }
 49:         }
 50:       `}</style>
-51: 
+51:
 52:       <div style={styles.header}>
 53:         <div style={styles.headerTitle}>Laporan Penjualan</div>
 54:         <div style={styles.periodeTabs}>
@@ -2787,7 +2819,7 @@ Let me read all the page files to understand the full structure.
 63:           ))}
 64:         </div>
 65:       </div>
-66: 
+66:
 67:       <div style={styles.content}>
 68:         <div style={styles.statsRow}>
 69:           <div style={styles.statCard}>
@@ -2801,7 +2833,7 @@ Let me read all the page files to understand the full structure.
 77:             <div style={{ ...styles.statValue, color: '#2C2C2A' }}>{stats.total_transaksi}</div>
 78:           </div>
 79:         </div>
-80: 
+80:
 81:         <div style={styles.sectionTitle}>Menu Terlaris</div>
 82:         <div style={styles.menuPopular}>
 83:           {menuTerlaris.length === 0 ? (
@@ -2827,7 +2859,7 @@ Let me read all the page files to understand the full structure.
 103:             ))
 104:           )}
 105:         </div>
-106: 
+106:
 107:         <div style={styles.sectionTitle}>Grafik Penjualan</div>
 108:         <div style={styles.chartCard}>
 109:           <div style={styles.chartPlaceholder}>
@@ -2845,12 +2877,12 @@ Let me read all the page files to understand the full structure.
 121:             <span>Min</span>
 122:           </div>
 123:         </div>
-124: 
+124:
 125:         <button style={styles.exportBtn} onClick={handleExport}>
 126:           <IconDownload size={18} /> Export Laporan
 127:         </button>
 128:       </div>
-129: 
+129:
 130:       {showPreview && (
 131:         <div className="print-report-preview" style={styles.previewOverlay}>
 132:           <div style={styles.previewSheet}>
@@ -2863,12 +2895,12 @@ Let me read all the page files to understand the full structure.
 139:                 <IconX size={18} />
 140:               </button>
 141:             </div>
-142: 
+142:
 143:             <div style={styles.previewBody}>
 144:               <div style={styles.previewBrand}>LAPORAN PENJUALAN</div>
 145:               <div style={styles.previewMeta}>Periode: {periodeLabel}</div>
 146:               <div style={styles.previewDivider} />
-147: 
+147:
 148:               <div style={styles.previewStatsGrid}>
 149:                 <div style={styles.previewStatBox}>
 150:                   <div style={styles.previewStatLabel}>Total Pendapatan</div>
@@ -2879,7 +2911,7 @@ Let me read all the page files to understand the full structure.
 155:                   <div style={styles.previewStatValue}>{stats.total_transaksi}</div>
 156:                 </div>
 157:               </div>
-158: 
+158:
 159:               <div style={styles.previewSectionTitle}>Menu Terlaris</div>
 160:               <div style={styles.previewList}>
 161:                 {menuTerlaris.length === 0 ? (
@@ -2894,7 +2926,7 @@ Let me read all the page files to understand the full structure.
 170:                 )}
 171:               </div>
 172:             </div>
-173: 
+173:
 174:             <div style={styles.previewActions}>
 175:               <button style={styles.previewBtnSecondary} onClick={() => setShowPreview(false)}>
 176:                 Tutup
@@ -2909,7 +2941,7 @@ Let me read all the page files to understand the full structure.
 185:     </div>
 186:   );
 187: }
-188: 
+188:
 189: const styles = {
 190:   container: { height: '100%', display: 'flex', flexDirection: 'column', position: 'relative' },
 191:   header: { background: '#C94040', padding: '24px 20px 40px', borderRadius: '0 0 24px 24px' },
@@ -3143,7 +3175,7 @@ Let me read all the page files to understand the full structure.
 419:     gap: '6px',
 420:   },
 421: };
-422: 
+422:
 423: if (typeof window !== 'undefined') {
 424:   window.addEventListener('beforeprint', () => {
 425:     const root = document.body;
@@ -3152,7 +3184,7 @@ Let me read all the page files to understand the full structure.
 428:       root.style.padding = '0';
 429:     }
 430:   });
-431: 
+431:
 432:   window.addEventListener('afterprint', () => {
 433:     const root = document.body;
 434:     if (root) {
@@ -3169,6 +3201,7 @@ Let me read all the page files to understand the full structure.
 **Tool: read**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\pemilik\\ManajemenStok.jsx"
@@ -3176,6 +3209,7 @@ Let me read all the page files to understand the full structure.
 ```
 
 **Output:**
+
 ```
 <path>E:\UDIN\Kuliah\Mata Kuliah\Rekayasa Perangkat Lunak\Tugas 6\wdms-app\wdms-frontend\src\pages\pemilik\ManajemenStok.jsx</path>
 <type>file</type>
@@ -3183,21 +3217,21 @@ Let me read all the page files to understand the full structure.
 1: import React, { useState } from 'react';
 2: import { useAppContext } from '../../context/AppContext';
 3: import { IconSearch, IconRefresh } from '@tabler/icons-react';
-4: 
+4:
 5: export default function ManajemenStok() {
 6:   const { menus, updateStok } = useAppContext();
 7:   const [search, setSearch] = useState('');
 8:   const [editingId, setEditingId] = useState(null);
 9:   const [editQty, setEditQty] = useState('');
-10: 
+10:
 11:   const filteredMenus = menus.filter((m) => m.nama.toLowerCase().includes(search.toLowerCase()));
-12: 
+12:
 13:   const getStatusStyle = (status, stok) => {
 14:     if (status === 'Habis' || stok <= 0) return { bg: '#F5C4B3', text: '#993C1D', label: 'HABIS' };
 15:     if (stok < 10) return { bg: '#FFE4C4', text: '#D85A30', label: 'SEDIKIT' };
 16:     return { bg: '#EAF3DE', text: '#3B6D11', label: 'TERSEDIA' };
 17:   };
-18: 
+18:
 19:   const handleUpdateStok = async (id_menu) => {
 20:     const qty = parseInt(editQty);
 21:     if (isNaN(qty) || qty < 0) {
@@ -3212,7 +3246,7 @@ Let me read all the page files to understand the full structure.
 30:       alert(result.message);
 31:     }
 32:   };
-33: 
+33:
 34:   const handleResetAll = async () => {
 35:     if (
 36:       !confirm(
@@ -3224,7 +3258,7 @@ Let me read all the page files to understand the full structure.
 42:       await updateStok(menu.id_menu, 50);
 43:     }
 44:   };
-45: 
+45:
 46:   return (
 47:     <div style={styles.container}>
 48:       <div style={styles.header}>
@@ -3239,26 +3273,26 @@ Let me read all the page files to understand the full structure.
 57:           />
 58:         </div>
 59:       </div>
-60: 
+60:
 61:       <div style={styles.content}>
 62:         {filteredMenus.map((menu) => {
 63:           const statusStyle = getStatusStyle(menu.status, menu.stok);
 64:           const isEditing = editingId === menu.id_menu;
-65: 
+65:
 66:           return (
 67:             <div key={menu.id_menu} style={styles.menuCard}>
 68:               <div style={styles.menuInfo}>
 69:                 <div style={styles.menuName}>{menu.nama}</div>
 70:                 <div style={styles.menuStok}>{menu.stok} porsi tersisa</div>
 71:               </div>
-72: 
+72:
 73:               <div style={styles.actionSide}>
 74:                 <div
 75:                   style={{ ...styles.badge, background: statusStyle.bg, color: statusStyle.text }}
 76:                 >
 77:                   {statusStyle.label}
 78:                 </div>
-79: 
+79:
 80:                 {isEditing ? (
 81:                   <div style={styles.editRow}>
 82:                     <input
@@ -3292,7 +3326,7 @@ Let me read all the page files to understand the full structure.
 110:           );
 111:         })}
 112:       </div>
-113: 
+113:
 114:       <div style={styles.footer}>
 115:         <button style={styles.resetBtn} onClick={handleResetAll}>
 116:           <IconRefresh size={18} /> Reset Semua Stok (Awal Hari)
@@ -3301,7 +3335,7 @@ Let me read all the page files to understand the full structure.
 119:     </div>
 120:   );
 121: }
-122: 
+122:
 123: const styles = {
 124:   container: { height: '100%', display: 'flex', flexDirection: 'column', position: 'relative' },
 125:   header: { background: '#E07B3A', padding: '24px 20px 40px', borderRadius: '0 0 24px 24px' },
@@ -3415,6 +3449,7 @@ Let me read all the page files to understand the full structure.
 **Tool: read**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\shared\\Login.jsx"
@@ -3422,6 +3457,7 @@ Let me read all the page files to understand the full structure.
 ```
 
 **Output:**
+
 ```
 <path>E:\UDIN\Kuliah\Mata Kuliah\Rekayasa Perangkat Lunak\Tugas 6\wdms-app\wdms-frontend\src\pages\shared\Login.jsx</path>
 <type>file</type>
@@ -3429,7 +3465,7 @@ Let me read all the page files to understand the full structure.
 1: import React, { useState } from 'react';
 2: import { useNavigate } from 'react-router-dom';
 3: import { useAppContext } from '../../context/AppContext';
-4: 
+4:
 5: export default function Login() {
 6:   const [username, setUsername] = useState('');
 7:   const [password, setPassword] = useState('');
@@ -3438,7 +3474,7 @@ Let me read all the page files to understand the full structure.
 10:   const [isLoading, setIsLoading] = useState(false);
 11:   const { login } = useAppContext();
 12:   const navigate = useNavigate();
-13: 
+13:
 14:   const handleLogin = async (e) => {
 15:     e.preventDefault();
 16:     if (!username || !password) {
@@ -3455,14 +3491,14 @@ Let me read all the page files to understand the full structure.
 27:       setError(result.message || 'Login gagal.');
 28:     }
 29:   };
-30: 
+30:
 31:   return (
 32:     <div style={styles.container}>
 33:       <div style={styles.logoWrap}>
 34:         <div style={styles.logo}>WDMS</div>
 35:         <div style={styles.subtitle}>Warteg Digital Management System</div>
 36:       </div>
-37: 
+37:
 38:       <div style={styles.roleToggle}>
 39:         <button
 40:           style={{
@@ -3483,7 +3519,7 @@ Let me read all the page files to understand the full structure.
 55:           👩‍🍳 Kasir
 56:         </button>
 57:       </div>
-58: 
+58:
 59:       <form onSubmit={handleLogin} style={styles.form}>
 60:         <div style={styles.inputGroup}>
 61:           <label style={styles.label}>Username</label>
@@ -3505,9 +3541,9 @@ Let me read all the page files to understand the full structure.
 77:             placeholder="password123"
 78:           />
 79:         </div>
-80: 
+80:
 81:         {error && <div style={styles.error}>⚠ {error}</div>}
-82: 
+82:
 83:         <button
 84:           type="submit"
 85:           style={{ ...styles.submitBtn, opacity: isLoading ? 0.7 : 1 }}
@@ -3516,7 +3552,7 @@ Let me read all the page files to understand the full structure.
 88:           {isLoading ? 'Memverifikasi...' : 'Masuk →'}
 89:         </button>
 90:       </form>
-91: 
+91:
 92:       <div style={styles.hint}>
 93:         <div style={styles.hintTitle}>Akun Demo:</div>
 94:         <div style={styles.hintText}>
@@ -3529,7 +3565,7 @@ Let me read all the page files to understand the full structure.
 101:     </div>
 102:   );
 103: }
-104: 
+104:
 105: const styles = {
 106:   container: {
 107:     padding: '40px 24px',
@@ -3617,6 +3653,7 @@ Let me read all the page files to understand the full structure.
 **Tool: read**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\shared\\Pengaturan.jsx"
@@ -3624,6 +3661,7 @@ Let me read all the page files to understand the full structure.
 ```
 
 **Output:**
+
 ```
 <path>E:\UDIN\Kuliah\Mata Kuliah\Rekayasa Perangkat Lunak\Tugas 6\wdms-app\wdms-frontend\src\pages\shared\Pengaturan.jsx</path>
 <type>file</type>
@@ -3640,25 +3678,25 @@ Let me read all the page files to understand the full structure.
 10:   IconLogout,
 11:   IconChevronRight,
 12: } from '@tabler/icons-react';
-13: 
+13:
 14: export default function Pengaturan() {
 15:   const { user, logout } = useAppContext();
 16:   const navigate = useNavigate();
-17: 
+17:
 18:   const handleLogout = () => {
 19:     logout();
 20:     navigate('/');
 21:   };
-22: 
+22:
 23:   const isPemilik = user?.role === 'Pemilik';
 24:   const primaryColor = isPemilik ? '#C94040' : '#1D9E75';
-25: 
+25:
 26:   return (
 27:     <div style={styles.container}>
 28:       <div style={{ ...styles.header, background: primaryColor }}>
 29:         <div style={styles.headerTitle}>Pengaturan</div>
 30:       </div>
-31: 
+31:
 32:       <div style={styles.content}>
 33:         <div style={styles.profileCard}>
 34:           <div style={styles.avatar}>{isPemilik ? '👨‍🍳' : '👩‍🍳'}</div>
@@ -3667,7 +3705,7 @@ Let me read all the page files to understand the full structure.
 37:             <div style={styles.profileRole}>{user?.role || 'User'} Warteg</div>
 38:           </div>
 39:         </div>
-40: 
+40:
 41:         <div style={styles.menuGroup}>
 42:           <MenuItem icon={<IconUser size={20} />} label="Profil Saya" />
 43:           {isPemilik && <MenuItem icon={<IconUsers size={20} />} label="Kelola Akun Kasir" />}
@@ -3675,7 +3713,7 @@ Let me read all the page files to understand the full structure.
 45:           <MenuItem icon={<IconCloudDownload size={20} />} label="Backup Data" />
 46:           <MenuItem icon={<IconInfoCircle size={20} />} label="Tentang Aplikasi" />
 47:         </div>
-48: 
+48:
 49:         <button style={styles.logoutBtn} onClick={handleLogout}>
 50:           <IconLogout size={20} /> Keluar
 51:         </button>
@@ -3683,7 +3721,7 @@ Let me read all the page files to understand the full structure.
 53:     </div>
 54:   );
 55: }
-56: 
+56:
 57: function MenuItem({ icon, label }) {
 58:   return (
 59:     <div style={styles.menuItem}>
@@ -3695,7 +3733,7 @@ Let me read all the page files to understand the full structure.
 65:     </div>
 66:   );
 67: }
-68: 
+68:
 69: const styles = {
 70:   container: { height: '100%', display: 'flex', flexDirection: 'column', position: 'relative' },
 71:   header: { padding: '24px 20px 40px', borderRadius: '0 0 24px 24px' },
@@ -3773,6 +3811,7 @@ Let me read all the page files to understand the full structure.
 **Tool: read**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\App.jsx"
@@ -3780,6 +3819,7 @@ Let me read all the page files to understand the full structure.
 ```
 
 **Output:**
+
 ```
 <path>E:\UDIN\Kuliah\Mata Kuliah\Rekayasa Perangkat Lunak\Tugas 6\wdms-app\wdms-frontend\src\App.jsx</path>
 <type>file</type>
@@ -3788,7 +3828,7 @@ Let me read all the page files to understand the full structure.
 2: import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 3: import { AppProvider, useAppContext } from './context/AppContext';
 4: import BottomNav from './components/BottomNav';
-5: 
+5:
 6: // Pages
 7: import Login from './pages/shared/Login';
 8: import DashboardPemilik from './pages/pemilik/DashboardPemilik';
@@ -3801,7 +3841,7 @@ Let me read all the page files to understand the full structure.
 15: import ManajemenStok from './pages/pemilik/ManajemenStok';
 16: import RiwayatTransaksi from './pages/kasir/RiwayatTransaksi';
 17: import Pengaturan from './pages/shared/Pengaturan';
-18: 
+18:
 19: function ProtectedRoute({ children, role }) {
 20:   const { user } = useAppContext();
 21:   if (!user) return <Navigate to="/" />;
@@ -3810,13 +3850,13 @@ Let me read all the page files to understand the full structure.
 24:   }
 25:   return children;
 26: }
-27: 
+27:
 28: function MainApp() {
 29:   return (
 30:     <div className="app-container">
 31:       <Routes>
 32:         <Route path="/" element={<Login />} />
-33: 
+33:
 34:         {/* Pemilik Routes */}
 35:         <Route
 36:           path="/dashboard-pemilik"
@@ -3850,7 +3890,7 @@ Let me read all the page files to understand the full structure.
 64:             </ProtectedRoute>
 65:           }
 66:         />
-67: 
+67:
 68:         {/* Kasir Routes */}
 69:         <Route
 70:           path="/dashboard-kasir"
@@ -3892,7 +3932,7 @@ Let me read all the page files to understand the full structure.
 106:             </ProtectedRoute>
 107:           }
 108:         />
-109: 
+109:
 110:         {/* Shared */}
 111:         <Route
 112:           path="/pengaturan"
@@ -3907,7 +3947,7 @@ Let me read all the page files to understand the full structure.
 121:     </div>
 122:   );
 123: }
-124: 
+124:
 125: export default function App() {
 126:   return (
 127:     <AppProvider>
@@ -3925,6 +3965,7 @@ Let me read all the page files to understand the full structure.
 **Tool: read**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\App.css"
@@ -3932,6 +3973,7 @@ Let me read all the page files to understand the full structure.
 ```
 
 **Output:**
+
 ```
 <path>E:\UDIN\Kuliah\Mata Kuliah\Rekayasa Perangkat Lunak\Tugas 6\wdms-app\wdms-frontend\src\App.css</path>
 <type>file</type>
@@ -3945,7 +3987,7 @@ Let me read all the page files to understand the full structure.
 7:   border: 2px solid transparent;
 8:   transition: border-color 0.3s;
 9:   margin-bottom: 24px;
-10: 
+10:
 11:   &:hover {
 12:     border-color: var(--accent-border);
 13:   }
@@ -3954,35 +3996,35 @@ Let me read all the page files to understand the full structure.
 16:     outline-offset: 2px;
 17:   }
 18: }
-19: 
+19:
 20: .hero {
 21:   position: relative;
-22: 
+22:
 23:   .base,
 24:   .framework,
 25:   .vite {
 26:     inset-inline: 0;
 27:     margin: 0 auto;
 28:   }
-29: 
+29:
 30:   .base {
 31:     width: 170px;
 32:     position: relative;
 33:     z-index: 0;
 34:   }
-35: 
+35:
 36:   .framework,
 37:   .vite {
 38:     position: absolute;
 39:   }
-40: 
+40:
 41:   .framework {
 42:     z-index: 1;
 43:     top: 34px;
 44:     height: 28px;
 45:     transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg) scale(1.4);
 46:   }
-47: 
+47:
 48:   .vite {
 49:     z-index: 0;
 50:     top: 107px;
@@ -3991,7 +4033,7 @@ Let me read all the page files to understand the full structure.
 53:     transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg) scale(0.8);
 54:   }
 55: }
-56: 
+56:
 57: #center {
 58:   display: flex;
 59:   flex-direction: column;
@@ -3999,18 +4041,18 @@ Let me read all the page files to understand the full structure.
 61:   place-content: center;
 62:   place-items: center;
 63:   flex-grow: 1;
-64: 
+64:
 65:   @media (max-width: 1024px) {
 66:     padding: 32px 20px 24px;
 67:     gap: 18px;
 68:   }
 69: }
-70: 
+70:
 71: #next-steps {
 72:   display: flex;
 73:   border-top: 1px solid var(--border);
 74:   text-align: left;
-75: 
+75:
 76:   & > div {
 77:     flex: 1 1 0;
 78:     padding: 32px;
@@ -4018,39 +4060,39 @@ Let me read all the page files to understand the full structure.
 80:       padding: 24px 20px;
 81:     }
 82:   }
-83: 
+83:
 84:   .icon {
 85:     margin-bottom: 16px;
 86:     width: 22px;
 87:     height: 22px;
 88:   }
-89: 
+89:
 90:   @media (max-width: 1024px) {
 91:     flex-direction: column;
 92:     text-align: center;
 93:   }
 94: }
-95: 
+95:
 96: #docs {
 97:   border-right: 1px solid var(--border);
-98: 
+98:
 99:   @media (max-width: 1024px) {
 100:     border-right: none;
 101:     border-bottom: 1px solid var(--border);
 102:   }
 103: }
-104: 
+104:
 105: #next-steps ul {
 106:   list-style: none;
 107:   padding: 0;
 108:   display: flex;
 109:   gap: 8px;
 110:   margin: 32px 0 0;
-111: 
+111:
 112:   .logo {
 113:     height: 18px;
 114:   }
-115: 
+115:
 116:   a {
 117:     color: var(--text-h);
 118:     font-size: 16px;
@@ -4062,7 +4104,7 @@ Let me read all the page files to understand the full structure.
 124:     gap: 8px;
 125:     text-decoration: none;
 126:     transition: box-shadow 0.3s;
-127: 
+127:
 128:     &:hover {
 129:       box-shadow: var(--shadow);
 130:     }
@@ -4071,16 +4113,16 @@ Let me read all the page files to understand the full structure.
 133:       width: 18px;
 134:     }
 135:   }
-136: 
+136:
 137:   @media (max-width: 1024px) {
 138:     margin-top: 20px;
 139:     flex-wrap: wrap;
 140:     justify-content: center;
-141: 
+141:
 142:     li {
 143:       flex: 1 1 calc(50% - 8px);
 144:     }
-145: 
+145:
 146:     a {
 147:       width: 100%;
 148:       justify-content: center;
@@ -4088,7 +4130,7 @@ Let me read all the page files to understand the full structure.
 150:     }
 151:   }
 152: }
-153: 
+153:
 154: #spacer {
 155:   height: 88px;
 156:   border-top: 1px solid var(--border);
@@ -4096,11 +4138,11 @@ Let me read all the page files to understand the full structure.
 158:     height: 48px;
 159:   }
 160: }
-161: 
+161:
 162: .ticks {
 163:   position: relative;
 164:   width: 100%;
-165: 
+165:
 166:   &::before,
 167:   &::after {
 168:     content: '';
@@ -4108,7 +4150,7 @@ Let me read all the page files to understand the full structure.
 170:     top: -4.5px;
 171:     border: 5px solid transparent;
 172:   }
-173: 
+173:
 174:   &::before {
 175:     left: 0;
 176:     border-left-color: var(--border);
@@ -4130,12 +4172,14 @@ Let me read all the page files to understand the full structure.
 _Thinking:_
 
 Now I have a complete picture of the codebase. The website uses:
+
 - React with inline styles (JS `styles` objects)
 - CSS already has some animations defined in `index.css`: `fadeIn`, `slideUp`, `spin`
 - Some components already use animations: `KelolaMenu.jsx` uses `fadeIn` and `slideUp` for modals
 - `LaporanPenjualan.jsx` has bar chart bars
 
 I need to create a global CSS animations file and then apply animations to all components. Since the components use inline styles, I'll need to either:
+
 1. Add animation CSS classes in a global CSS file and add `className` to elements
 2. Or add CSS animations to index.css
 
@@ -4154,6 +4198,7 @@ I'll create `src/animations.css` with utility classes and then add `className` p
 For components using inline styles, I need to add `className` attributes. Let me map out what needs to change:
 
 **Components:**
+
 1. `Login.jsx` - Add page animation
 2. `DashboardKasir.jsx` - Add page animation, card animations
 3. `PesananKasir.jsx` - Add page animation, menu card animations
@@ -4172,6 +4217,7 @@ Since there are many components and the CSS is already in place for some, I'll c
 Let me create the animations CSS first with all needed classes, then update each component.
 
 Key animations I'll implement:
+
 - `.page-enter` / `.fade-in` - Fade in on mount
 - `.slide-up` - Slide up from below
 - `.slide-down` - Slide down from above
@@ -4190,6 +4236,7 @@ Let me create the animations.css file first with comprehensive animations:
 **Tool: todowrite**
 
 **Input:**
+
 ```json
 {
   "todos": [
@@ -4228,6 +4275,7 @@ Let me create the animations.css file first with comprehensive animations:
 ```
 
 **Output:**
+
 ```
 [
   {
@@ -4274,6 +4322,7 @@ Let me create the animations.css file first.
 **Tool: write**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\animations.css",
@@ -4282,6 +4331,7 @@ Let me create the animations.css file first.
 ```
 
 **Output:**
+
 ```
 Wrote file successfully.
 ```
@@ -4297,6 +4347,7 @@ Now let me check the main.jsx to see where to import the animations.css.
 **Tool: read**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\main.jsx"
@@ -4304,6 +4355,7 @@ Now let me check the main.jsx to see where to import the animations.css.
 ```
 
 **Output:**
+
 ```
 <path>E:\UDIN\Kuliah\Mata Kuliah\Rekayasa Perangkat Lunak\Tugas 6\wdms-app\wdms-frontend\src\main.jsx</path>
 <type>file</type>
@@ -4313,7 +4365,7 @@ Now let me check the main.jsx to see where to import the animations.css.
 3: import App from './App.jsx';
 4: import './index.css';
 5: // import './App.css';
-6: 
+6:
 7: ReactDOM.createRoot(document.getElementById('root')).render(
 8:   <React.StrictMode>
 9:     <App />
@@ -4331,6 +4383,7 @@ Now let me check the main.jsx to see where to import the animations.css.
 _Thinking:_
 
 Now I need to:
+
 1. Import `animations.css` in `main.jsx`
 2. Update each page/component with animation classes
 
@@ -4339,6 +4392,7 @@ Let me start with main.jsx import, then update each file. I'll do the edits in p
 **Tool: todowrite**
 
 **Input:**
+
 ```json
 {
   "todos": [
@@ -4377,6 +4431,7 @@ Let me start with main.jsx import, then update each file. I'll do the edits in p
 ```
 
 **Output:**
+
 ```
 [
   {
@@ -4423,6 +4478,7 @@ Let me now make all the edits. I'll do main.jsx and all page files.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\main.jsx",
@@ -4432,6 +4488,7 @@ Let me now make all the edits. I'll do main.jsx and all page files.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -4439,6 +4496,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\shared\\Login.jsx",
@@ -4448,6 +4506,7 @@ Edit applied successfully.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -4455,6 +4514,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\shared\\Login.jsx",
@@ -4464,6 +4524,7 @@ Edit applied successfully.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -4471,6 +4532,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\shared\\Login.jsx",
@@ -4480,6 +4542,7 @@ Edit applied successfully.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -4487,6 +4550,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\shared\\Login.jsx",
@@ -4496,6 +4560,7 @@ Edit applied successfully.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -4503,6 +4568,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\shared\\Login.jsx",
@@ -4512,6 +4578,7 @@ Edit applied successfully.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -4529,6 +4596,7 @@ Now update the kasir pages:
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\kasir\\DashboardKasir.jsx",
@@ -4538,6 +4606,7 @@ Now update the kasir pages:
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -4545,6 +4614,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\kasir\\DashboardKasir.jsx",
@@ -4554,6 +4624,7 @@ Edit applied successfully.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -4561,6 +4632,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\kasir\\DashboardKasir.jsx",
@@ -4570,6 +4642,7 @@ Edit applied successfully.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -4577,6 +4650,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\kasir\\DashboardKasir.jsx",
@@ -4586,6 +4660,7 @@ Edit applied successfully.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -4593,6 +4668,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\kasir\\DashboardKasir.jsx",
@@ -4602,6 +4678,7 @@ Edit applied successfully.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -4617,6 +4694,7 @@ Now update PesananKasir.jsx with animations.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\kasir\\PesananKasir.jsx",
@@ -4626,6 +4704,7 @@ Now update PesananKasir.jsx with animations.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -4633,6 +4712,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\kasir\\PesananKasir.jsx",
@@ -4642,6 +4722,7 @@ Edit applied successfully.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -4649,6 +4730,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\kasir\\PesananKasir.jsx",
@@ -4658,6 +4740,7 @@ Edit applied successfully.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -4665,6 +4748,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\kasir\\PesananKasir.jsx",
@@ -4674,6 +4758,7 @@ Edit applied successfully.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -4681,6 +4766,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\kasir\\PesananKasir.jsx",
@@ -4690,6 +4776,7 @@ Edit applied successfully.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -4697,6 +4784,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\kasir\\PesananKasir.jsx",
@@ -4706,6 +4794,7 @@ Edit applied successfully.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -4721,6 +4810,7 @@ Now update ProsesPembayaran.jsx, RiwayatTransaksi.jsx, and StrukPembayaran.jsx.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\kasir\\ProsesPembayaran.jsx",
@@ -4730,6 +4820,7 @@ Now update ProsesPembayaran.jsx, RiwayatTransaksi.jsx, and StrukPembayaran.jsx.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -4737,6 +4828,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\kasir\\ProsesPembayaran.jsx",
@@ -4746,6 +4838,7 @@ Edit applied successfully.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -4753,6 +4846,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\kasir\\ProsesPembayaran.jsx",
@@ -4762,6 +4856,7 @@ Edit applied successfully.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -4769,6 +4864,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\kasir\\ProsesPembayaran.jsx",
@@ -4778,6 +4874,7 @@ Edit applied successfully.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -4785,6 +4882,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\kasir\\ProsesPembayaran.jsx",
@@ -4794,6 +4892,7 @@ Edit applied successfully.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -4801,6 +4900,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\kasir\\ProsesPembayaran.jsx",
@@ -4810,6 +4910,7 @@ Edit applied successfully.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -4817,6 +4918,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\kasir\\ProsesPembayaran.jsx",
@@ -4826,6 +4928,7 @@ Edit applied successfully.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -4833,6 +4936,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\kasir\\ProsesPembayaran.jsx",
@@ -4842,6 +4946,7 @@ Edit applied successfully.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -4849,6 +4954,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\kasir\\ProsesPembayaran.jsx",
@@ -4858,6 +4964,7 @@ Edit applied successfully.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -4873,6 +4980,7 @@ Now update RiwayatTransaksi.jsx and StrukPembayaran.jsx.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\kasir\\RiwayatTransaksi.jsx",
@@ -4882,6 +4990,7 @@ Now update RiwayatTransaksi.jsx and StrukPembayaran.jsx.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -4889,6 +4998,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\kasir\\RiwayatTransaksi.jsx",
@@ -4898,6 +5008,7 @@ Edit applied successfully.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -4905,6 +5016,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\kasir\\RiwayatTransaksi.jsx",
@@ -4914,6 +5026,7 @@ Edit applied successfully.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -4921,6 +5034,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\kasir\\RiwayatTransaksi.jsx",
@@ -4930,6 +5044,7 @@ Edit applied successfully.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -4937,6 +5052,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\kasir\\StrukPembayaran.jsx",
@@ -4946,6 +5062,7 @@ Edit applied successfully.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -4953,6 +5070,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\kasir\\StrukPembayaran.jsx",
@@ -4962,6 +5080,7 @@ Edit applied successfully.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -4969,6 +5088,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\kasir\\StrukPembayaran.jsx",
@@ -4978,6 +5098,7 @@ Edit applied successfully.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -4985,6 +5106,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\kasir\\StrukPembayaran.jsx",
@@ -4994,6 +5116,7 @@ Edit applied successfully.
 ```
 
 **Error:**
+
 ```
 Found multiple matches for oldString. Provide more surrounding context to make the match unique.
 ```
@@ -5009,6 +5132,7 @@ There are two instances of `style={styles.newTrxBtn}` in StrukPembayaran.jsx - o
 **Tool: read**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\kasir\\StrukPembayaran.jsx",
@@ -5018,6 +5142,7 @@ There are two instances of `style={styles.newTrxBtn}` in StrukPembayaran.jsx - o
 ```
 
 **Output:**
+
 ```
 <path>E:\UDIN\Kuliah\Mata Kuliah\Rekayasa Perangkat Lunak\Tugas 6\wdms-app\wdms-frontend\src\pages\kasir\StrukPembayaran.jsx</path>
 <type>file</type>
@@ -5031,17 +5156,17 @@ There are two instances of `style={styles.newTrxBtn}` in StrukPembayaran.jsx - o
 60:       </div>
 61:     );
 62:   }
-63: 
+63:
 64:   const d = trx.date ? new Date(trx.date) : new Date();
 65:   const dateStr = `${d.getDate().toString().padStart(2, '0')}/${(d.getMonth() + 1).toString().padStart(2, '0')}/${d.getFullYear()} ${d.getHours().toString().padStart(2, '0')}:${d.getMinutes().toString().padStart(2, '0')}`;
 66:   const trxId = String(trx.id_transaksi || trx.id || '').slice(-4); // Last 4 digits
-67: 
+67:
 68:   return (
 69:     <div className="page-enter" style={styles.container}>
 70:       <div className="header-enter" style={styles.topBar}>
 71:         <div style={styles.topTitle}>Struk Pembayaran</div>
 72:       </div>
-73: 
+73:
 
 (Showing lines 54-73 of 308. Use offset=74 to continue.)
 </content>
@@ -5058,6 +5183,7 @@ I see - there's one in the empty state at line 57 and one in the main view at th
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\kasir\\StrukPembayaran.jsx",
@@ -5067,6 +5193,7 @@ I see - there's one in the empty state at line 57 and one in the main view at th
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -5084,6 +5211,7 @@ Now update the pemilik pages:
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\pemilik\\DashboardPemilik.jsx",
@@ -5093,6 +5221,7 @@ Now update the pemilik pages:
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -5100,6 +5229,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\pemilik\\DashboardPemilik.jsx",
@@ -5109,6 +5239,7 @@ Edit applied successfully.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -5116,6 +5247,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\pemilik\\DashboardPemilik.jsx",
@@ -5125,6 +5257,7 @@ Edit applied successfully.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -5132,6 +5265,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\pemilik\\DashboardPemilik.jsx",
@@ -5141,6 +5275,7 @@ Edit applied successfully.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -5148,6 +5283,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\pemilik\\DashboardPemilik.jsx",
@@ -5157,6 +5293,7 @@ Edit applied successfully.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -5164,6 +5301,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\pemilik\\DashboardPemilik.jsx",
@@ -5173,6 +5311,7 @@ Edit applied successfully.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -5180,6 +5319,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\pemilik\\DashboardPemilik.jsx",
@@ -5189,6 +5329,7 @@ Edit applied successfully.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -5196,6 +5337,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\pemilik\\DashboardPemilik.jsx",
@@ -5205,6 +5347,7 @@ Edit applied successfully.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -5220,6 +5363,7 @@ Now update KelolaMenu.jsx, LaporanPenjualan.jsx, ManajemenStok.jsx, and the rema
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\pemilik\\KelolaMenu.jsx",
@@ -5229,6 +5373,7 @@ Now update KelolaMenu.jsx, LaporanPenjualan.jsx, ManajemenStok.jsx, and the rema
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -5236,6 +5381,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\pemilik\\KelolaMenu.jsx",
@@ -5245,6 +5391,7 @@ Edit applied successfully.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -5252,6 +5399,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\pemilik\\KelolaMenu.jsx",
@@ -5261,6 +5409,7 @@ Edit applied successfully.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -5268,6 +5417,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\pemilik\\KelolaMenu.jsx",
@@ -5277,6 +5427,7 @@ Edit applied successfully.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -5284,6 +5435,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\pemilik\\KelolaMenu.jsx",
@@ -5293,6 +5445,7 @@ Edit applied successfully.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -5300,6 +5453,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\pemilik\\KelolaMenu.jsx",
@@ -5309,6 +5463,7 @@ Edit applied successfully.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -5316,6 +5471,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\pemilik\\KelolaMenu.jsx",
@@ -5325,6 +5481,7 @@ Edit applied successfully.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -5340,6 +5497,7 @@ Now update LaporanPenjualan.jsx, ManajemenStok.jsx, Pengaturan.jsx, and BottomNa
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\pemilik\\LaporanPenjualan.jsx",
@@ -5349,6 +5507,7 @@ Now update LaporanPenjualan.jsx, ManajemenStok.jsx, Pengaturan.jsx, and BottomNa
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -5356,6 +5515,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\pemilik\\LaporanPenjualan.jsx",
@@ -5365,6 +5525,7 @@ Edit applied successfully.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -5372,6 +5533,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\pemilik\\LaporanPenjualan.jsx",
@@ -5381,6 +5543,7 @@ Edit applied successfully.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -5388,6 +5551,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\pemilik\\LaporanPenjualan.jsx",
@@ -5397,6 +5561,7 @@ Edit applied successfully.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -5404,6 +5569,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\pemilik\\LaporanPenjualan.jsx",
@@ -5413,6 +5579,7 @@ Edit applied successfully.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -5420,6 +5587,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\pemilik\\LaporanPenjualan.jsx",
@@ -5429,6 +5597,7 @@ Edit applied successfully.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -5436,6 +5605,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\pemilik\\LaporanPenjualan.jsx",
@@ -5445,6 +5615,7 @@ Edit applied successfully.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -5452,6 +5623,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\pemilik\\LaporanPenjualan.jsx",
@@ -5461,6 +5633,7 @@ Edit applied successfully.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -5476,6 +5649,7 @@ Now update ManajemenStok.jsx, Pengaturan.jsx, and BottomNav.jsx.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\pemilik\\ManajemenStok.jsx",
@@ -5485,6 +5659,7 @@ Now update ManajemenStok.jsx, Pengaturan.jsx, and BottomNav.jsx.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -5492,6 +5667,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\pemilik\\ManajemenStok.jsx",
@@ -5501,6 +5677,7 @@ Edit applied successfully.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -5508,6 +5685,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\pemilik\\ManajemenStok.jsx",
@@ -5517,6 +5695,7 @@ Edit applied successfully.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -5524,6 +5703,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\pemilik\\ManajemenStok.jsx",
@@ -5533,6 +5713,7 @@ Edit applied successfully.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -5540,6 +5721,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\pemilik\\ManajemenStok.jsx",
@@ -5549,6 +5731,7 @@ Edit applied successfully.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -5556,6 +5739,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\shared\\Pengaturan.jsx",
@@ -5565,6 +5749,7 @@ Edit applied successfully.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -5572,6 +5757,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\shared\\Pengaturan.jsx",
@@ -5581,6 +5767,7 @@ Edit applied successfully.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -5588,6 +5775,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\shared\\Pengaturan.jsx",
@@ -5597,6 +5785,7 @@ Edit applied successfully.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -5604,6 +5793,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\shared\\Pengaturan.jsx",
@@ -5613,6 +5803,7 @@ Edit applied successfully.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -5620,6 +5811,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\shared\\Pengaturan.jsx",
@@ -5629,6 +5821,7 @@ Edit applied successfully.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -5636,6 +5829,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\shared\\Pengaturan.jsx",
@@ -5645,6 +5839,7 @@ Edit applied successfully.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -5652,6 +5847,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\components\\BottomNav.jsx",
@@ -5661,6 +5857,7 @@ Edit applied successfully.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -5668,6 +5865,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\components\\BottomNav.jsx",
@@ -5677,6 +5875,7 @@ Edit applied successfully.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -5698,6 +5897,7 @@ Now let me add hover transitions to a few remaining style objects and verify:
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\components\\BottomNav.jsx",
@@ -5707,6 +5907,7 @@ Now let me add hover transitions to a few remaining style objects and verify:
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -5714,6 +5915,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\pemilik\\DashboardPemilik.jsx",
@@ -5723,6 +5925,7 @@ Edit applied successfully.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -5730,6 +5933,7 @@ Edit applied successfully.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\pemilik\\LaporanPenjualan.jsx",
@@ -5739,6 +5943,7 @@ Edit applied successfully.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -5756,6 +5961,7 @@ Actually, the filter pills already work. Let me add transitions to them.
 **Tool: edit**
 
 **Input:**
+
 ```json
 {
   "filePath": "E:\\UDIN\\Kuliah\\Mata Kuliah\\Rekayasa Perangkat Lunak\\Tugas 6\\wdms-app\\wdms-frontend\\src\\pages\\kasir\\PesananKasir.jsx",
@@ -5765,6 +5971,7 @@ Actually, the filter pills already work. Let me add transitions to them.
 ```
 
 **Output:**
+
 ```
 Edit applied successfully.
 ```
@@ -5780,6 +5987,7 @@ Now let me update the todo list and verify the build works.
 **Tool: todowrite**
 
 **Input:**
+
 ```json
 {
   "todos": [
@@ -5823,6 +6031,7 @@ Now let me update the todo list and verify the build works.
 ```
 
 **Output:**
+
 ```
 [
   {
@@ -5874,6 +6083,7 @@ Let me check if there's a build script to verify the project compiles correctly.
 **Tool: bash**
 
 **Input:**
+
 ```json
 {
   "command": "npm run build 2>&1",
@@ -5883,13 +6093,15 @@ Let me check if there's a build script to verify the project compiles correctly.
 ```
 
 **Output:**
+
 ```
 
 > wdms-app@0.0.0 build
 > vite build
 
 [36mvite v8.1.3 [32mbuilding client environment for production...[36m[39m
-[2Ktransforming...✓ 6242 modules transformed.
+[2K
+transforming...✓ 6242 modules transformed.
 rendering chunks...
 computing gzip size...
 dist/index.html                   0.55 kB │ gzip:   0.33 kB
@@ -5912,6 +6124,7 @@ The build succeeded. Let me update the todos.
 **Tool: todowrite**
 
 **Input:**
+
 ```json
 {
   "todos": [
@@ -5955,6 +6168,7 @@ The build succeeded. Let me update the todos.
 ```
 
 **Output:**
+
 ```
 [
   {
@@ -6006,25 +6220,25 @@ All done. Let me provide a summary.
 Semua animasi sudah diterapkan. Berikut ringkasan perubahannya:
 
 **File baru:**
+
 - `src/animations.css` — file CSS global berisi ~20 keyframes dan utility classes (`fade-in-up`, `fade-in-scale`, `slide-in-right`, `hover-lift`, `btn-press`, `bar-fill`, `stagger-1` s/d `stagger-8`, dll.)
 
 **Perubahan pada halaman/komponen (11 file):**
 
-| File | Animasi |
-|---|---|
-| `main.jsx` | import `animations.css` |
-| `Login.jsx` | `page-enter`, `bounce-in` (logo), `fade-in-up` (toggle, form, hint), `btn-press` + `hover-bright` (tombol) |
-| `DashboardKasir.jsx` | `page-enter`, `header-enter`, `fade-in-scale` (stats), `quick-btn-enter` + `hover-lift` (tombol cepat) |
-| `PesananKasir.jsx` | `page-enter`, `header-enter`, `menu-card-enter` + `hover-lift` (grid menu), filter pills `transition` |
-| `ProsesPembayaran.jsx` | `page-enter`, `header-enter`, `fade-in-up` + staggered (summary, amount, metode), `btn-press` |
-| `RiwayatTransaksi.jsx` | `page-enter`, `header-enter`, `list-item-enter` + `hover-lift` (card transaksi) |
-| `StrukPembayaran.jsx` | `page-enter`, `header-enter`, `fade-in-scale` (struk), `btn-press` |
-| `DashboardPemilik.jsx` | `page-enter`, `header-enter`, staggered cards, `bar-fill` (progress bar), `stat-enter` (angka), `hover-lift` (tombol cepat) |
-| `KelolaMenu.jsx` | `page-enter`, `header-enter`, `menu-card-enter` staggered, `pulse-anim` (FAB), modal pakai `modal-overlay-enter`/`modal-content-enter` |
-| `LaporanPenjualan.jsx` | `page-enter`, staggered cards, `chart-bar` (grafik batang), `hover-glow` (export), preview modal animasi |
-| `ManajemenStok.jsx` | `page-enter`, `header-enter`, `menu-card-enter`, `hover-glow` (reset) |
-| `Pengaturan.jsx` | `page-enter`, `header-enter`, staggered profile/menu, `hover-lift` (menu items) |
-| `BottomNav.jsx` | `nav-enter`, `btn-press` (nav items), `transition` warna |
+| File                   | Animasi                                                                                                                                |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| `main.jsx`             | import `animations.css`                                                                                                                |
+| `Login.jsx`            | `page-enter`, `bounce-in` (logo), `fade-in-up` (toggle, form, hint), `btn-press` + `hover-bright` (tombol)                             |
+| `DashboardKasir.jsx`   | `page-enter`, `header-enter`, `fade-in-scale` (stats), `quick-btn-enter` + `hover-lift` (tombol cepat)                                 |
+| `PesananKasir.jsx`     | `page-enter`, `header-enter`, `menu-card-enter` + `hover-lift` (grid menu), filter pills `transition`                                  |
+| `ProsesPembayaran.jsx` | `page-enter`, `header-enter`, `fade-in-up` + staggered (summary, amount, metode), `btn-press`                                          |
+| `RiwayatTransaksi.jsx` | `page-enter`, `header-enter`, `list-item-enter` + `hover-lift` (card transaksi)                                                        |
+| `StrukPembayaran.jsx`  | `page-enter`, `header-enter`, `fade-in-scale` (struk), `btn-press`                                                                     |
+| `DashboardPemilik.jsx` | `page-enter`, `header-enter`, staggered cards, `bar-fill` (progress bar), `stat-enter` (angka), `hover-lift` (tombol cepat)            |
+| `KelolaMenu.jsx`       | `page-enter`, `header-enter`, `menu-card-enter` staggered, `pulse-anim` (FAB), modal pakai `modal-overlay-enter`/`modal-content-enter` |
+| `LaporanPenjualan.jsx` | `page-enter`, staggered cards, `chart-bar` (grafik batang), `hover-glow` (export), preview modal animasi                               |
+| `ManajemenStok.jsx`    | `page-enter`, `header-enter`, `menu-card-enter`, `hover-glow` (reset)                                                                  |
+| `Pengaturan.jsx`       | `page-enter`, `header-enter`, staggered profile/menu, `hover-lift` (menu items)                                                        |
+| `BottomNav.jsx`        | `nav-enter`, `btn-press` (nav items), `transition` warna                                                                               |
 
 ---
-

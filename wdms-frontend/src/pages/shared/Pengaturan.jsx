@@ -46,7 +46,11 @@ export default function Pengaturan() {
           <MenuItem icon={<IconInfoCircle size={20} />} label="Tentang Aplikasi" />
         </div>
 
-        <button className="btn-press hover-bright fade-in-up stagger-3" style={styles.logoutBtn} onClick={handleLogout}>
+        <button
+          className="btn-press hover-bright fade-in-up stagger-3"
+          style={styles.logoutBtn}
+          onClick={handleLogout}
+        >
           <IconLogout size={20} /> Keluar
         </button>
       </div>

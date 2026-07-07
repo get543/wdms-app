@@ -87,7 +87,11 @@ export default function ManajemenStok() {
                       onChange={(e) => setEditQty(e.target.value)}
                       placeholder="Qty"
                     />
-                    <button className="btn-press hover-bright" style={styles.saveBtn} onClick={() => handleUpdateStok(menu.id_menu)}>
+                    <button
+                      className="btn-press hover-bright"
+                      style={styles.saveBtn}
+                      onClick={() => handleUpdateStok(menu.id_menu)}
+                    >
                       ✓
                     </button>
                     <button style={styles.cancelBtn} onClick={() => setEditingId(null)}>
@@ -112,7 +116,11 @@ export default function ManajemenStok() {
       </div>
 
       <div style={styles.footer}>
-        <button className="btn-press hover-glow fade-in-up" style={styles.resetBtn} onClick={handleResetAll}>
+        <button
+          className="btn-press hover-glow fade-in-up"
+          style={styles.resetBtn}
+          onClick={handleResetAll}
+        >
           <IconRefresh size={18} /> Reset Semua Stok (Awal Hari)
         </button>
       </div>
@@ -122,7 +130,7 @@ export default function ManajemenStok() {
 
 const styles = {
   container: { height: '100%', display: 'flex', flexDirection: 'column', position: 'relative' },
-  header: { background: '#E07B3A', padding: '24px 20px 40px', borderRadius: '0 0 24px 24px' },
+  header: { background: '#C94040', padding: '24px 20px 40px', borderRadius: '0 0 24px 24px' },
   headerTitle: {
     fontSize: '18px',
     fontWeight: '800',
@@ -212,8 +220,8 @@ const styles = {
   resetBtn: {
     width: '100%',
     background: '#fff',
-    border: '1.5px solid #E07B3A',
-    color: '#E07B3A',
+    border: '1.5px solid #C94040',
+    color: '#C94040',
     padding: '14px',
     borderRadius: '14px',
     fontSize: '14px',

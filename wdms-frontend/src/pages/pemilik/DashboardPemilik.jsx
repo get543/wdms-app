@@ -59,21 +59,31 @@ export default function DashboardPemilik() {
         </div>
 
         <div className="fade-in-up stagger-2" style={styles.statsRow}>
-          <div className="fade-in-scale stagger-2" style={{ ...styles.statCard, ...styles.incomeCard }}>
+          <div
+            className="fade-in-scale stagger-2"
+            style={{ ...styles.statCard, ...styles.incomeCard }}
+          >
             <div style={{ ...styles.statLabel, color: '#3B6D11' }}>PENDAPATAN</div>
             <div className="stat-enter" style={{ ...styles.statValue, color: '#27500A' }}>
               {formatIDR(stats.total_pendapatan)}
             </div>
             <div style={{ ...styles.statSub, color: '#3B6D11' }}>Hari ini</div>
           </div>
-          <div className="fade-in-scale stagger-3" style={{ ...styles.statCard, ...styles.trxCard }}>
+          <div
+            className="fade-in-scale stagger-3"
+            style={{ ...styles.statCard, ...styles.trxCard }}
+          >
             <div style={{ ...styles.statLabel, color: '#993C1D' }}>TRANSAKSI</div>
-            <div className="stat-enter" style={{ ...styles.statValue, color: '#D85A30' }}>{stats.total_transaksi}</div>
+            <div className="stat-enter" style={{ ...styles.statValue, color: '#D85A30' }}>
+              {stats.total_transaksi}
+            </div>
             <div style={{ ...styles.statSub, color: '#993C1D' }}>Hari ini</div>
           </div>
         </div>
 
-        <div className="fade-in-up stagger-4" style={styles.sectionTitle}>Menu Terlaris Hari Ini</div>
+        <div className="fade-in-up stagger-4" style={styles.sectionTitle}>
+          Menu Terlaris Hari Ini
+        </div>
         <div className="fade-in-up stagger-4" style={styles.menuPopular}>
           {menuTerlaris.length === 0 ? (
             <div style={{ color: '#888780', fontSize: '12px', textAlign: 'center' }}>
@@ -99,7 +109,9 @@ export default function DashboardPemilik() {
           )}
         </div>
 
-        <div className="fade-in-up stagger-5" style={styles.sectionTitle}>Menu Cepat</div>
+        <div className="fade-in-up stagger-5" style={styles.sectionTitle}>
+          Menu Cepat
+        </div>
         <div className="fade-in-up stagger-5" style={styles.quickGrid}>
           <QuickBtn
             icon={<IconToolsKitchen2 />}
@@ -133,7 +145,11 @@ export default function DashboardPemilik() {
 
 function QuickBtn({ icon, label, bg, onClick }) {
   return (
-    <button className="hover-lift btn-press" style={{ ...styles.quickBtn, background: bg }} onClick={onClick}>
+    <button
+      className="hover-lift btn-press"
+      style={{ ...styles.quickBtn, background: bg }}
+      onClick={onClick}
+    >
       <div style={{ color: '#fff' }}>{icon}</div>
       <div style={styles.quickLabel}>{label}</div>
     </button>

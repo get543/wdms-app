@@ -142,7 +142,110 @@ router.get('/laporan', async (req, res) => {
       LIMIT 5
     `);
 
-    res.json({ success: true, data: { stats, menuTerlaris } });
+    let chartLabels = [];
+    let chartData = [];
+
+    if (periode === 'minggu') {
+      const [rows] = await db.query(`
+        SELECT DATE(t.tanggal_transaksi) AS day, COUNT(*) AS count
+        FROM transaksi t
+        WHERE DATE(t.tanggal_transaksi) >= DATE_SUB(CURDATE(), INTERVAL 6 DAY)
+        GROUP BY DATE(t.tanggal_transaksi)
+      `);
+
+      const dayLabels = ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab'];
+      const values = [0, 0, 0, 0, 0, 0, 0];
+
+      rows.forEach((r) => {
+        const d = new Date(r.day);
+        const dayIndex = d.getDay();
+        values[dayIndex] += Number(r.count);
+      });
+
+      chartLabels = dayLabels;
+      chartData = values;
+    } else if (periode === 'bulan') {
+      const [rows] = await db.query(`
+        SELECT CEIL(DAY(t.tanggal_transaksi) / 7) AS week_block, COUNT(*) AS count
+        FROM transaksi t
+        WHERE MONTH(t.tanggal_transaksi) = MONTH(NOW()) AND YEAR(t.tanggal_transaksi) = YEAR(NOW())
+        GROUP BY week_block
+        ORDER BY week_block
+      `);
+
+      const labels = ['Minggu 1', 'Minggu 2', 'Minggu 3', 'Minggu 4', 'Minggu 5'];
+      const values = labels.map((_, index) => {
+        const row = rows.find((r) => Number(r.week_block) === index + 1);
+        return row ? Number(row.count) : 0;
+      });
+
+      // Trim trailing empty weeks beyond the current month duration.
+      const today = new Date();
+      const totalDays = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
+      const maxWeeks = Math.ceil(totalDays / 7);
+      chartLabels = labels.slice(0, maxWeeks);
+      chartData = values.slice(0, maxWeeks);
+    } else {
+      // const [rows] = await db.query(`
+      //   SELECT HOUR(t.tanggal_transaksi) AS hour, COUNT(*) AS count
+      //   FROM transaksi t
+      //   WHERE DATE(t.tanggal_transaksi) = CURDATE()
+      //   GROUP BY HOUR(t.tanggal_transaksi)
+      //   ORDER BY HOUR(t.tanggal_transaksi)
+      // `);
+
+      // const hourValues = rows.map((row) => Number(row.hour));
+      // const labels = [];
+      // const values = [];
+
+      // if (hourValues.length > 0) {
+      //   const minHour = Math.min(...hourValues);
+      //   const maxHour = Math.max(...hourValues);
+      //   const startHour = minHour % 2 === 0 ? minHour : Math.max(0, minHour - 1);
+      //   const endHour = maxHour % 2 === 0 ? maxHour : Math.min(23, maxHour + 1);
+
+      //   for (let hour = startHour; hour <= endHour; hour += 2) {
+      //     labels.push(`${String(hour).padStart(2, '0')}:00`);
+      //     const row = rows.find((r) => Number(r.hour) === hour);
+      //     values.push(row ? row.count : 0);
+      //   }
+      // } else {
+      //   ['06:00', '08:00', '10:00', '12:00', '14:00', '16:00', '18:00'].forEach((label) => {
+      //     labels.push(label);
+      //     values.push(0);
+      //   });
+      // }
+
+      // chartLabels = labels;
+      // chartData = values;
+
+      // PERBAIKAN: Ambil semua jam yang ada hari ini
+      const [rows] = await db.query(`
+        SELECT HOUR(t.tanggal_transaksi) AS hour, COUNT(*) AS count
+        FROM transaksi t
+        WHERE DATE(t.tanggal_transaksi) = CURDATE()
+        GROUP BY HOUR(t.tanggal_transaksi)
+      `);
+
+      const labels = [];
+      const values = [];
+
+      // Loop dari jam 00 sampai 22 dengan langkah 2 jam
+      for (let hour = 0; hour < 24; hour += 2) {
+        labels.push(`${String(hour).padStart(2, '0')}:00`);
+
+        // Cari data yang masuk ke blok jam ini
+        const countInBlock = rows
+          .filter((r) => Number(r.hour) === hour || Number(r.hour) === hour + 1)
+          .reduce((sum, r) => sum + Number(r.count), 0);
+
+        values.push(countInBlock);
+      }
+      chartLabels = labels;
+      chartData = values;
+    }
+
+    res.json({ success: true, data: { stats, menuTerlaris, chartLabels, chartData } });
   } catch (err) {
     console.error('[LAPORAN] GET error:', err);
     res.status(500).json({ success: false, message: 'Gagal mengambil data laporan.' });

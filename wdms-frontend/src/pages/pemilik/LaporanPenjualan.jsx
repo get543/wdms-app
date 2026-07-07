@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useAppContext } from '../../context/AppContext';
+import { getTransaksi } from '../../services/api';
 import { IconDownload, IconPrinter, IconX } from '@tabler/icons-react';
 
 const PERIODES = [
@@ -13,6 +14,8 @@ export default function LaporanPenjualan() {
   const [periode, setPeriode] = useState('hari');
   const [stats, setStats] = useState({ total_transaksi: 0, total_pendapatan: 0 });
   const [menuTerlaris, setMenuTerlaris] = useState([]);
+  const [chartLabels, setChartLabels] = useState([]);
+  const [chartData, setChartData] = useState([]);
   const [showPreview, setShowPreview] = useState(false);
 
   useEffect(() => {
@@ -20,9 +23,108 @@ export default function LaporanPenjualan() {
       if (data) {
         setStats(data.stats);
         setMenuTerlaris(data.menuTerlaris || []);
+        const labels = data.chartLabels || [];
+        const values = data.chartData || [];
+        setChartLabels(labels);
+        setChartData(values);
+
+        // If backend didn't provide series, compute fallback from full transaksi
+        if (!labels || labels.length === 0 || !values || values.length === 0) {
+          getTransaksi()
+            .then((res) => {
+              const transactions = (res && res.data && res.data.data) || [];
+              const { labels: fbLabels, values: fbValues } = buildSeriesFromTransactions(
+                transactions,
+                periode
+              );
+              setChartLabels(fbLabels);
+              setChartData(fbValues);
+            })
+            .catch((err) => {
+              console.warn('[LAPORAN] fallback transaksi fetch failed', err);
+            });
+        }
       }
     });
   }, [fetchLaporan, periode]);
+
+  function buildSeriesFromTransactions(transactions, periodeType) {
+    // Pastikan kita bekerja dengan data hari ini / minggu ini sesuai zona waktu lokal
+    const tx = transactions.map((t) => ({ ...t, date: new Date(t.tanggal_transaksi) }));
+
+    if (periodeType === 'minggu') {
+      const labels = ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab'];
+      const values = [0, 0, 0, 0, 0, 0, 0];
+
+      const sevenDaysAgo = new Date();
+      sevenDaysAgo.setHours(0, 0, 0, 0);
+      sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 6);
+
+      tx.forEach((t) => {
+        const tDate = new Date(t.date);
+        tDate.setHours(0, 0, 0, 0);
+        if (tDate >= sevenDaysAgo) {
+          const dayIndex = tDate.getDay();
+          values[dayIndex] += 1;
+        }
+      });
+      return { labels, values };
+    }
+
+    if (periodeType === 'bulan') {
+      const today = new Date();
+      const totalDays = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
+      const maxWeeks = Math.ceil(totalDays / 7);
+      const labels = Array.from({ length: maxWeeks }, (_, i) => `Minggu ${i + 1}`);
+      const values = labels.map((_, idx) => {
+        const weekNumber = idx + 1;
+        const count = tx.filter((t) => {
+          const sameMonth =
+            t.date.getMonth() === today.getMonth() && t.date.getFullYear() === today.getFullYear();
+          const tWeek = Math.ceil(t.date.getDate() / 7);
+          return sameMonth && tWeek === weekNumber;
+        }).length;
+        return count;
+      });
+      return { labels, values };
+    }
+
+    // DEFAULT: HARI INI
+    const labels = [];
+    const values = [];
+    const now = new Date();
+    const todayStr = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+
+    for (let hour = 0; hour < 24; hour += 2) {
+      labels.push(`${String(hour).padStart(2, '0')}:00-${String(hour + 1).padStart(2, '0')}:59`);
+
+      const count = tx.filter((t) => {
+        let txDateStr = '';
+        let txHour = 0;
+
+        if (
+          t.tanggal_transaksi &&
+          typeof t.tanggal_transaksi === 'string' &&
+          t.tanggal_transaksi.includes('T')
+        ) {
+          const parts = t.tanggal_transaksi.split('T');
+          txDateStr = parts[0];
+          txHour = parseInt(parts[1].substring(0, 2), 10);
+        } else {
+          txDateStr = `${t.date.getFullYear()}-${String(t.date.getMonth() + 1).padStart(2, '0')}-${String(t.date.getDate()).padStart(2, '0')}`;
+          txHour = t.date.getHours();
+        }
+
+        const isSameDay = txDateStr === todayStr;
+        const isInHourBlock = txHour === hour || txHour === hour + 1;
+
+        return isSameDay && isInHourBlock;
+      }).length;
+
+      values.push(count);
+    }
+    return { labels, values };
+  }
 
   const formatIDR = (num) => `Rp ${parseFloat(num || 0).toLocaleString('id-ID')}`;
   const maxTerjual = menuTerlaris.length > 0 ? menuTerlaris[0].total_terjual : 1;
@@ -75,11 +177,15 @@ export default function LaporanPenjualan() {
           </div>
           <div className="fade-in-scale stagger-3" style={styles.statCard}>
             <div style={styles.statLabel}>Total Transaksi</div>
-            <div className="stat-enter" style={{ ...styles.statValue, color: '#2C2C2A' }}>{stats.total_transaksi}</div>
+            <div className="stat-enter" style={{ ...styles.statValue, color: '#2C2C2A' }}>
+              {stats.total_transaksi}
+            </div>
           </div>
         </div>
 
-        <div className="fade-in-up stagger-4" style={styles.sectionTitle}>Menu Terlaris</div>
+        <div className="fade-in-up stagger-4" style={styles.sectionTitle}>
+          Menu Terlaris
+        </div>
         <div className="fade-in-up stagger-4" style={styles.menuPopular}>
           {menuTerlaris.length === 0 ? (
             <div
@@ -105,25 +211,50 @@ export default function LaporanPenjualan() {
           )}
         </div>
 
-        <div className="fade-in-up stagger-5" style={styles.sectionTitle}>Grafik Penjualan</div>
+        <div className="fade-in-up stagger-5" style={styles.sectionTitle}>
+          Grafik Penjualan
+        </div>
         <div className="fade-in-up stagger-5" style={styles.chartCard}>
           <div style={styles.chartPlaceholder}>
-            {[40, 70, 50, 90, 60, 80, 100].map((h, i) => (
-              <div key={i} className={`chart-bar stagger-${i + 1}`} style={{ ...styles.bar, height: `${h}%` }}></div>
-            ))}
+            {(chartLabels.length > 0
+              ? chartLabels
+              : ['Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab', 'Min']
+            ).map((label, i) => {
+              const value = Number(chartData[i] ?? 0);
+              const maxCount =
+                chartData.length > 0 ? Math.max(...chartData.map((n) => Number(n)), 1) : 1;
+              const scaledHeight = maxCount > 0 ? (value / maxCount) * 100 : 0;
+              const height = value > 0 ? Math.max(scaledHeight, 12) : 6;
+              return (
+                <div
+                  key={label + i}
+                  className={`chart-bar stagger-${i + 1}`}
+                  style={{
+                    ...styles.bar,
+                    height: `${height}%`,
+                    opacity: value === 0 ? 0.35 : 0.95,
+                    boxShadow: value > 0 ? '0 4px 12px rgba(201, 64, 64, 0.24)' : 'none',
+                  }}
+                  title={`${label}: ${value} transaksi`}
+                />
+              );
+            })}
           </div>
           <div style={styles.chartLabels}>
-            <span>Sen</span>
-            <span>Sel</span>
-            <span>Rab</span>
-            <span>Kam</span>
-            <span>Jum</span>
-            <span>Sab</span>
-            <span>Min</span>
+            {(chartLabels.length > 0
+              ? chartLabels
+              : ['Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab', 'Min']
+            ).map((label, i) => (
+              <span key={label + i}>{label}</span>
+            ))}
           </div>
         </div>
 
-        <button className="btn-press hover-glow fade-in-up stagger-6" style={styles.exportBtn} onClick={handleExport}>
+        <button
+          className="btn-press hover-glow fade-in-up stagger-6"
+          style={styles.exportBtn}
+          onClick={handleExport}
+        >
           <IconDownload size={18} /> Export Laporan
         </button>
       </div>
@@ -290,7 +421,13 @@ const styles = {
     padding: '0 10px',
     marginBottom: '10px',
   },
-  bar: { width: '24px', background: '#C94040', borderRadius: '4px 4px 0 0', opacity: 0.8, transition: 'opacity 0.3s' },
+  bar: {
+    width: '24px',
+    background: '#C94040',
+    borderRadius: '4px 4px 0 0',
+    opacity: 0.8,
+    transition: 'opacity 0.3s',
+  },
   chartLabels: {
     display: 'flex',
     justifyContent: 'space-between',

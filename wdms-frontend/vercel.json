@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api/:match*",
-      "destination": "https://pc.goldeye-temperature.ts.net/api/:match*"
+      "destination": "https://uwuntu.goldeye-temperature.ts.net/api/:match*"
     }
   ]
 }

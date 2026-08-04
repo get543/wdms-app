@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router';
 import { IconPrinter, IconShare, IconPlus } from '@tabler/icons-react';
 
 export default function StrukPembayaran() {

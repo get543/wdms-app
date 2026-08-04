@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 import { IconChevronLeft, IconEdit, IconCheck, IconX } from '@tabler/icons-react';
 import { useAppContext } from '../../context/AppContext';
 import { updateUser } from '../../services/api';

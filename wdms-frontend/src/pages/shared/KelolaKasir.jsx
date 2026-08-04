@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 import { IconChevronLeft, IconPlus, IconEdit, IconTrash } from '@tabler/icons-react';
 import { getUsers, createUser, updateUser, deleteUser } from '../../services/api';
 

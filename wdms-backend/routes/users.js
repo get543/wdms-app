@@ -36,13 +36,11 @@ router.post('/', async (req, res) => {
       'INSERT INTO users (nama, username, password, role) VALUES (?, ?, ?, ?)',
       [nama, username, password, 'Kasir']
     );
-    res
-      .status(201)
-      .json({
-        success: true,
-        message: 'Akun kasir berhasil ditambahkan.',
-        id_user: result.insertId,
-      });
+    res.status(201).json({
+      success: true,
+      message: 'Akun kasir berhasil ditambahkan.',
+      id_user: result.insertId,
+    });
   } catch (err) {
     console.error('[USERS] POST error:', err);
     res.status(500).json({ success: false, message: 'Gagal menambah akun kasir.' });

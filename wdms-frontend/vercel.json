@@ -1,8 +1,8 @@
 {
   "rewrites": [
     {
-      "source": "/api/:match*",
-      "destination": "https://uwuntu.goldeye-temperature.ts.net/api/:match*"
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }

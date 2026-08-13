@@ -2,16 +2,17 @@
 
 Aplikasi ini terdiri dari backend Express + Node.js, frontend React + Vite, dan aplikasi mobile Flutter untuk mengelola menu, stok, transaksi, serta laporan penjualan warteg digital.
 
+
+## 👇 Click to Download
+
+[![Click Here To Download](https://img.shields.io/badge/Download_APK-2EA043?style=for-the-badge&logo=android&logoColor=white)](https://github.com/get543/wdms-app/releases/download/latest/app-release.apk)
+
+
 ## Screenshots
 
 | Light Mode                                                   | Dark Mode                                                  |
 | ------------------------------------------------------------ | ---------------------------------------------------------- |
 | ![light mode](./wdms-mobile/assets/mobile%20app%20light.png) | ![dark mode](./wdms-mobile/assets/mobile%20app%20dark.png) |
-
-
-## Download Mobile App
-
-[Releases](https://github.com/get543/wdms-app/releases/download/latest/app-release.apk)
 
 
 ---

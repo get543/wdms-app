@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:path_provider/path_provider.dart';
@@ -30,12 +31,10 @@ class _CommonWebViewState extends State<CommonWebView> {
 
   //! --- WEBVIEW SETTINGS
   Future<void> _initSettings() async {
-    // Check if the App is currently in Dark Mode
     final isDarkMode =
         WidgetsBinding.instance.platformDispatcher.platformBrightness ==
-        Brightness.dark;
+            Brightness.dark;
 
-    // Default settings (Safe fallback)
     bool useAlgorithmic = false;
     ForceDark useForceDark = ForceDark.AUTO;
 
@@ -43,18 +42,10 @@ class _CommonWebViewState extends State<CommonWebView> {
       final androidInfo = await DeviceInfoPlugin().androidInfo;
       final sdkInt = androidInfo.version.sdkInt;
 
-      // --- LOGIC REPLICATION ---
-
-      // Android 13+ (API 33+)
-      // Your Java: setAlgorithmicDarkeningAllowed(true)
-      // We set ForceDark to AUTO so the Algorithmic setting takes precedence naturally.
       if (sdkInt >= 33) {
         useAlgorithmic = true;
         useForceDark = ForceDark.AUTO;
-      }
-      // Android 10-12 (API 29-32)
-      // Your Java: setForceDark(FORCE_DARK_ON)
-      else if (sdkInt >= 29) {
+      } else if (sdkInt >= 29) {
         useAlgorithmic = false;
         useForceDark = ForceDark.ON;
       }
@@ -62,51 +53,26 @@ class _CommonWebViewState extends State<CommonWebView> {
 
     setState(() {
       _webViewSettings = InAppWebViewSettings(
-        // Dark Mode Logic
         algorithmicDarkeningAllowed: useAlgorithmic,
         forceDark: useForceDark,
-
-        // VISUAL FIXES:
-        // Disable transparency. Transparency confuses the Dark Mode algorithm
-        // causing it to invert images thinking they are on a white background.
         transparentBackground: false,
-
-        // Set the standard behavior for how the WebView interacts with content
-        preferredContentMode: UserPreferredContentMode.RECOMMENDED,
-
-        // Ensure JavaScript is on
-        javaScriptEnabled: true,
-
-        // Disable over-scroll glow which sometimes looks white/glitchy in dark mode
         overScrollMode: OverScrollMode.NEVER,
-
-        // Allow downloads to trigger
         useOnDownloadStart: true,
-
-        // Allow mixed content (http on https sites)
         mixedContentMode: MixedContentMode.MIXED_CONTENT_ALWAYS_ALLOW,
       );
     });
   }
 
-  //! --- HELPER TO CHECK PERMISSIONS ---
+  //! --- PERMISSIONS & DOWNLOAD LOGIC ---
   Future<bool> _checkPermission() async {
     if (Platform.isAndroid) {
-      // 1. Request Notification Permission (Required for Android 13+)
-      // Without this, you will NOT see the "Download Complete" notification.
-      final notifStatus = await Permission.notification.status;
-      if (notifStatus != PermissionStatus.granted) {
+      if (await Permission.notification.status != PermissionStatus.granted) {
         await Permission.notification.request();
       }
 
-      // 2. Request Storage Permission
       final androidInfo = await DeviceInfoPlugin().androidInfo;
-      // Android 13+ (API 33) doesn't need explicit storage permission for public downloads
-      if (androidInfo.version.sdkInt >= 33) {
-        return true;
-      }
+      if (androidInfo.version.sdkInt >= 33) return true;
 
-      // Android 12 and below needs storage permission
       final storageStatus = await Permission.storage.status;
       if (storageStatus != PermissionStatus.granted) {
         final result = await Permission.storage.request();
@@ -117,11 +83,8 @@ class _CommonWebViewState extends State<CommonWebView> {
     return false;
   }
 
-  //! --- HELPER TO PERFORM DOWNLOAD ---
   void _downloadFile(DownloadStartRequest request) async {
-    // 1. Check Permissions
-    bool hasPermission = await _checkPermission();
-    if (!hasPermission) {
+    if (!await _checkPermission()) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('Permission denied. Cannot download.')),
@@ -130,60 +93,33 @@ class _CommonWebViewState extends State<CommonWebView> {
       return;
     }
 
-    // 2. Show "Starting Download" Toast inside the App
     if (mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text(
-            'Downloading ${request.suggestedFilename ?? "file"}...',
-          ),
+          content: Text('Downloading ${request.suggestedFilename ?? "file"}...'),
           duration: const Duration(seconds: 2),
         ),
       );
     }
 
-    // 3. CRITICAL FIX: Extract Cookies from WebView
-    // Without this, the downloader doesn't know you are logged in,
-    // and downloads the HTML login page instead of the actual file.
-    final cookieManager = CookieManager.instance();
-    final cookies = await cookieManager.getCookies(url: request.url);
+    final cookies = await CookieManager.instance().getCookies(url: request.url);
+    final cookieString = cookies.map((c) => '${c.name}=${c.value}').join('; ');
 
-    String cookieString = '';
-    for (var cookie in cookies) {
-      cookieString += '${cookie.name}=${cookie.value}; ';
-    }
+    final Map<String, String> headers = {
+      if (cookieString.isNotEmpty) 'Cookie': cookieString,
+      if (request.userAgent != null) 'User-Agent': request.userAgent!,
+      'Referer': request.url.toString(),
+      'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+    };
 
-    // --- UPDATED HEADERS SECTION ---
-    final Map<String, String> headers = {};
-
-    if (cookieString.isNotEmpty) {
-      headers['Cookie'] = cookieString;
-    }
-
-    // CRITICAL FIX: Use the exact User-Agent from the WebView request
-    // This prevents Cloudflare from blocking the request (403 Forbidden)
-    if (request.userAgent != null) {
-      headers['User-Agent'] = request.userAgent!;
-    }
-
-    // Add a Referer header (Strict servers like Laravel often demand this)
-    headers['Referer'] = request.url.toString();
-
-    // Add standard Accept headers so the server knows we are acting like a browser
-    headers['Accept'] = 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8';
-    // --------------------------------
-
-    // 4. Start the Download
-    Directory? externalDir = await getExternalStorageDirectory();
-
-    String fileName = request.suggestedFilename ?? "downloaded_file_${DateTime.now().millisecondsSinceEpoch}";
+    final Directory? externalDir = await getExternalStorageDirectory();
+    final String fileName = request.suggestedFilename ?? "download_${DateTime.now().millisecondsSinceEpoch}";
 
     await FlutterDownloader.enqueue(
       url: request.url.toString(),
       savedDir: externalDir!.path,
       fileName: fileName,
-      headers: headers, // Pass the dynamically built headers here
-
+      headers: headers,
       showNotification: true,
       openFileFromNotification: true,
       saveInPublicStorage: true,
@@ -191,102 +127,91 @@ class _CommonWebViewState extends State<CommonWebView> {
     );
   }
 
+  //! --- EXTRACTED CALLBACK METHODS TO REDUCE BUILD COMPLEXITY ---
+
+  void _onWebViewCreated(InAppWebViewController controller) {
+    _webViewController = controller;
+  }
+
+  void _onProgressChanged(InAppWebViewController controller, int progress) {
+    setState(() => _progress = progress / 100);
+  }
+
+  Future<ServerTrustAuthResponse?> _onReceivedServerTrustAuthRequest(
+      InAppWebViewController controller, URLAuthenticationChallenge challenge) async {
+    return ServerTrustAuthResponse(action: ServerTrustAuthResponseAction.PROCEED);
+  }
+
+  Future<void> _onLoadStop(InAppWebViewController controller, WebUri? url) async {
+    await controller.injectCSSCode(
+      source: """
+        * {
+          -webkit-tap-highlight-color: transparent !important;
+          -webkit-touch-callout: none !important;
+          outline: none !important;
+        }
+      """,
+    );
+  }
+
+  void _onPopInvoked(bool didPop, Object? result) async {
+    if (didPop) return;
+    if (_webViewController != null && await _webViewController!.canGoBack()) {
+      _webViewController!.goBack();
+    } else {
+      if (context.mounted) Navigator.of(context).pop();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    // Determine background color based on theme to prevent white flashes
-    final backgroundColor =
-        WidgetsBinding.instance.platformDispatcher.platformBrightness ==
-            Brightness.dark
-        ? Colors.black
-        : Colors.white;
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    final backgroundColor = isDarkMode ? Colors.black : Colors.white;
+    final iconBrightness = isDarkMode ? Brightness.light : Brightness.dark;
+
+    final overlayStyle = SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      systemNavigationBarColor: Colors.transparent,
+      statusBarIconBrightness: iconBrightness,
+      systemNavigationBarIconBrightness: iconBrightness,
+    );
 
     if (_webViewSettings == null) {
-      return Scaffold(
-        backgroundColor: backgroundColor,
-        body: const Center(child: CircularProgressIndicator()),
+      return AnnotatedRegion<SystemUiOverlayStyle>(
+        value: overlayStyle,
+        child: Scaffold(
+          backgroundColor: backgroundColor,
+          body: const Center(child: CircularProgressIndicator()),
+        ),
       );
     }
 
-    return PopScope(
-      canPop: false,
-      onPopInvokedWithResult: (didPop, result) async {
-        if (didPop) return;
-        if (_webViewController != null && await _webViewController!.canGoBack()) {
-          _webViewController!.goBack();
-        } else {
-          // If we can't go back, allow the app to close
-          if (context.mounted) {
-            Navigator.of(context).pop();
-          }
-        }
-      },
-      child: Scaffold(
-        // Ensure the Scaffold background matches to hide loading glitches
-        backgroundColor: backgroundColor,
-        body: SafeArea(
-          child: Stack(
+    // Build method is now purely declarative and highly readable
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: overlayStyle,
+      child: PopScope(
+        canPop: false,
+        onPopInvokedWithResult: _onPopInvoked,
+        child: Scaffold(
+          backgroundColor: backgroundColor,
+          body: Stack(
             children: [
               InAppWebView(
                 initialUrlRequest: URLRequest(url: WebUri(AppConstants.webUrl)),
                 initialSettings: _webViewSettings,
-
-            onWebViewCreated: (controller) {
-              _webViewController = controller;
-
-              // CRITICAL: Explicitly set background color to black via native controller
-              // This helps the "Algorithmic Darkening" realize the background is already dark.
-              if (Platform.isAndroid) {
-                controller.setBackgroundColor(color: backgroundColor);
-              }
-            },
-
-            // This callback gives you an integer from 0 to 100
-            onProgressChanged: (controller, progress) {
-              setState(() {
-                _progress = progress / 100; // Convert 0-100 to 0.0-1.0
-              });
-            },
-
-            // Ignore SSL Error
-            onReceivedServerTrustAuthRequest: (controller, challenge) async {
-              debugPrint(
-                "SSL Error detected for: ${challenge.protectionSpace.host}",
-              );
-
-              // ACTION: Trust the certificate effectively ignoring the error.
-              // WARNING: This makes the connection susceptible to Man-in-the-Middle attacks.
-              // Only use this if you trust the website.
-              return ServerTrustAuthResponse(
-                action: ServerTrustAuthResponseAction.PROCEED,
-              );
-            },
-
-            // Download request started
-                onDownloadStartRequest: (controller, request) {
-                  _downloadFile(request);
-                },
-
-                onLoadStop: (controller, url) async {
-                  // This removes the gray/blue highlight that appears when tapping elements
-                  // and prevents the long-press menu from appearing on links/images.
-                  await controller.injectCSSCode(
-                    source: """
-                      * {
-                        -webkit-tap-highlight-color: transparent !important;
-                        -webkit-touch-callout: none !important;
-                        outline: none !important;
-                      }
-                    """,
-                  );
-                },
+                onWebViewCreated: _onWebViewCreated,
+                onProgressChanged: _onProgressChanged,
+                onReceivedServerTrustAuthRequest: _onReceivedServerTrustAuthRequest,
+                onDownloadStartRequest: (controller, request) => _downloadFile(request),
+                onLoadStop: _onLoadStop,
               ),
-
-              // Only show if progress is less than 1.0 (100%)
               if (_progress < 1.0)
-                LinearProgressIndicator(
-                  value: _progress,
-                  color: const Color(0xFF753996),
-                  backgroundColor: Colors.transparent,
+                SafeArea(
+                  child: LinearProgressIndicator(
+                    value: _progress,
+                    color: const Color(0xFF753996),
+                    backgroundColor: Colors.transparent,
+                  ),
                 ),
             ],
           ),
@@ -294,8 +219,4 @@ class _CommonWebViewState extends State<CommonWebView> {
       ),
     );
   }
-}
-
-extension on InAppWebViewController {
-  void setBackgroundColor({ required Color color }) {}
 }

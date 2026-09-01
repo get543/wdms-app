@@ -1,10 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:wdms_mobile/screens/common_webview.dart';
 
 void main() async {
   // It's best practice to ensure the Flutter binding is initialized,
   WidgetsFlutterBinding.ensureInitialized();
+
+  // Set the app to edge-to-edge mode
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+    statusBarColor: Colors.transparent,
+    systemNavigationBarColor: Colors.transparent,
+    statusBarIconBrightness: Brightness.dark,
+    systemNavigationBarIconBrightness: Brightness.dark,
+  ));
 
   await FlutterDownloader.initialize(
       debug: true,

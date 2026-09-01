@@ -1,4 +1,4 @@
-package com.example.wdms_mobile
+package app.wdms.mobile
 
 import io.flutter.embedding.android.FlutterActivity
 

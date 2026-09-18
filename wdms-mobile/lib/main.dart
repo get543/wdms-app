@@ -9,16 +9,18 @@ void main() async {
 
   // Set the app to edge-to-edge mode
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
-  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-    statusBarColor: Colors.transparent,
-    systemNavigationBarColor: Colors.transparent,
-    statusBarIconBrightness: Brightness.dark,
-    systemNavigationBarIconBrightness: Brightness.dark,
-  ));
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      systemNavigationBarColor: Colors.transparent,
+      statusBarIconBrightness: Brightness.dark,
+      systemNavigationBarIconBrightness: Brightness.dark,
+    ),
+  );
 
   await FlutterDownloader.initialize(
-      debug: true,
-      ignoreSsl: true // Set to true if specific website has SSL issues!
+    debug: true,
+    ignoreSsl: true, // Set to true if specific website has SSL issues!
   );
   runApp(const MyApp());
 }
@@ -54,4 +56,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-

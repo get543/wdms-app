@@ -33,7 +33,7 @@ class _CommonWebViewState extends State<CommonWebView> {
   Future<void> _initSettings() async {
     final isDarkMode =
         WidgetsBinding.instance.platformDispatcher.platformBrightness ==
-            Brightness.dark;
+        Brightness.dark;
 
     bool useAlgorithmic = false;
     ForceDark useForceDark = ForceDark.AUTO;
@@ -96,7 +96,9 @@ class _CommonWebViewState extends State<CommonWebView> {
     if (mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('Downloading ${request.suggestedFilename ?? "file"}...'),
+          content: Text(
+            'Downloading ${request.suggestedFilename ?? "file"}...',
+          ),
           duration: const Duration(seconds: 2),
         ),
       );
@@ -109,11 +111,14 @@ class _CommonWebViewState extends State<CommonWebView> {
       if (cookieString.isNotEmpty) 'Cookie': cookieString,
       if (request.userAgent != null) 'User-Agent': request.userAgent!,
       'Referer': request.url.toString(),
-      'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+      'Accept':
+          'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
     };
 
     final Directory? externalDir = await getExternalStorageDirectory();
-    final String fileName = request.suggestedFilename ?? "download_${DateTime.now().millisecondsSinceEpoch}";
+    final String fileName =
+        request.suggestedFilename ??
+        "download_${DateTime.now().millisecondsSinceEpoch}";
 
     await FlutterDownloader.enqueue(
       url: request.url.toString(),
@@ -138,11 +143,18 @@ class _CommonWebViewState extends State<CommonWebView> {
   }
 
   Future<ServerTrustAuthResponse?> _onReceivedServerTrustAuthRequest(
-      InAppWebViewController controller, URLAuthenticationChallenge challenge) async {
-    return ServerTrustAuthResponse(action: ServerTrustAuthResponseAction.PROCEED);
+    InAppWebViewController controller,
+    URLAuthenticationChallenge challenge,
+  ) async {
+    return ServerTrustAuthResponse(
+      action: ServerTrustAuthResponseAction.PROCEED,
+    );
   }
 
-  Future<void> _onLoadStop(InAppWebViewController controller, WebUri? url) async {
+  Future<void> _onLoadStop(
+    InAppWebViewController controller,
+    WebUri? url,
+  ) async {
     await controller.injectCSSCode(
       source: """
         * {
@@ -201,8 +213,10 @@ class _CommonWebViewState extends State<CommonWebView> {
                 initialSettings: _webViewSettings,
                 onWebViewCreated: _onWebViewCreated,
                 onProgressChanged: _onProgressChanged,
-                onReceivedServerTrustAuthRequest: _onReceivedServerTrustAuthRequest,
-                onDownloadStartRequest: (controller, request) => _downloadFile(request),
+                onReceivedServerTrustAuthRequest:
+                    _onReceivedServerTrustAuthRequest,
+                onDownloadStartRequest: (controller, request) =>
+                    _downloadFile(request),
                 onLoadStop: _onLoadStop,
               ),
               if (_progress < 1.0)

@@ -5,7 +5,7 @@ Aplikasi ini terdiri dari backend Express + Node.js, frontend React + Vite, dan 
 
 ## 👇 Click to Download
 
-[![Click Here To Download](https://img.shields.io/badge/Download_APK-2EA043?style=for-the-badge&logo=android&logoColor=white)](https://github.com/get543/wdms-app/releases/download/latest/app-release.apk)
+[![Click Here To Download](https://img.shields.io/badge/Download_APK-2EA043?style=for-the-badge&logo=android&logoColor=white)](https://github.com/get543/wdms-app/releases/latest/download/app-release.apk)
 
 
 ## Screenshots
